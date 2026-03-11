@@ -1,4 +1,12 @@
 /**
+ * Lock hero height to initial viewport height.
+ * Prevents resize when mobile browser chrome (address bar) shows/hides on scroll.
+ */
+(function () {
+  document.documentElement.style.setProperty('--hero-height', window.innerHeight + 'px');
+})();
+
+/**
  * Burger-Menü Toggle (Schritt 5)
  */
 document.addEventListener('DOMContentLoaded', function () {

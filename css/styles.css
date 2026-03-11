@@ -491,8 +491,12 @@ body.nav-open {
   position: relative;
   z-index: 10;
   background-color: var(--color-light-yellow);
-  padding: 2rem 1.5rem 0;
+  padding: 1rem 1.5rem 0;
   overflow-x: hidden;
+}
+
+#angebote {
+  padding-top: 0;
 }
 
 .offers-overview__inner {
@@ -570,7 +574,7 @@ body.nav-open {
 /* Offers Overview: Tablet */
 @media (min-width: 768px) {
   .offers-overview {
-    padding: 3rem 2rem 0;
+    padding: 5rem 2rem 0;
   }
 
   .offers-overview__title {
@@ -594,7 +598,7 @@ body.nav-open {
 /* Offers Overview: Desktop */
 @media (min-width: 1024px) {
   .offers-overview {
-    padding: 4rem 2rem 0;
+    padding: 6rem 2rem 0;
   }
 
   .offers-overview__title {

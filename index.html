@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ina.YOGA – Yoga, Sound Bath und Nuad Thai Massage mit Ina. Kurse, Events und Kontakt.">
+  <title>ina.YOGA – Bewegung, die verbindet</title>
+
+  <!-- Adobe Typekit -->
+  <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+  <link rel="stylesheet" href="https://use.typekit.net/fmg7cfm.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header__inner">
+      <a href="#" class="header__logo">
+        <img src="logo/INA_YOGA_LOGO_HEADER_BROAD_transparent.png" alt="ina.YOGA">
+      </a>
+      <nav class="header__social" aria-label="Social Media">
+        <a href="https://wa.me/4369919112175" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <img src="Icons/WhatsApp_Black.png" alt="" width="24" height="24">
+        </a>
+        <a href="https://www.instagram.com/iina.yoga/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <img src="Icons/Instagram_Black.png" alt="" width="24" height="24">
+        </a>
+        <a href="mailto:corina.ung@gmx.at" aria-label="E-Mail">
+          <img src="Icons/Mail_Black.png" alt="" width="24" height="24">
+        </a>
+      </nav>
+      <nav class="header__nav" aria-label="Hauptnavigation">
+        <a href="ueber-mich.html">Über mich</a>
+        <a href="#yoga-kurse">Yoga Kurse</a>
+        <a href="firmenyoga.html">Firmenyoga</a>
+        <a href="#sound-bath">Sound Bath</a>
+        <a href="#nuad-thai">Nuad Thai</a>
+        <a href="#events">Events</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+      <button class="header__burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-overlay">
+        <span class="header__burger-icon header__burger-icon--menu" aria-hidden="true">
+          <img src="Icons/Menu_Black.png" alt="" width="24" height="24">
+        </span>
+        <span class="header__burger-icon header__burger-icon--close" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </button>
+    </div>
+    <div class="nav-overlay" id="nav-overlay" aria-hidden="true">
+      <nav class="nav-overlay__inner" aria-label="Mobile Navigation">
+        <a href="ueber-mich.html">Über mich</a>
+        <a href="#yoga-kurse">Yoga Kurse</a>
+        <a href="firmenyoga.html">Firmenyoga</a>
+        <a href="#sound-bath">Sound Bath</a>
+        <a href="#nuad-thai">Nuad Thai</a>
+        <a href="#events">Events</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero__image-wrap">
+        <picture>
+          <source media="(min-width: 1024px)" srcset="images/Hero_Image_Ina_Desktop.png">
+          <img src="images/Hero_Image_Ina_Mobile.png" alt="Ina – Yoga" class="hero__image">
+        </picture>
+      </div>
+      <div class="hero__content">
+        <div class="hero__top">
+          <h1 class="hero__headline">be true. be you.</h1>
+          <img src="Icons/Accent_Yellow_Image_Ina.png" alt="" class="hero__accent" aria-hidden="true">
+        </div>
+        <div class="hero__bottom">
+          <p class="hero__welcome">Bewegung, die verbindet. Ruhe, die wirkt.</p>
+          <a href="#yoga-kurse" class="hero__btn hero__btn--accent btn-img">
+            <img src="Buttons/Button_Yellow_1_Images_Ina.png" alt="">
+            <span>Finde deinen Kurs</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <div class="wavy-divider wavy-divider--top wavy-divider--yellow" aria-hidden="true">
+      <svg viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,60 L0,30 C150,0 350,60 600,30 C850,0 1050,60 1200,30 L1200,60 Z" fill="#f3f7af"/>
+        <path class="wavy-divider__line" d="M0,30 C150,60 350,0 600,30 C850,60 1050,0 1200,30" fill="none" stroke="#e0d8eb" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <section class="offers-overview" id="angebote">
+      <div class="offers-overview__inner">
+        <h2 class="offers-overview__title section-title">meine angebote</h2>
+        <div class="offers-overview__grid">
+          <button type="button" class="offers-overview__card" data-modal="yoga" aria-haspopup="dialog">
+            <img src="images/Uebersicht_1_Image_Ina.png" alt="Yoga">
+          </button>
+          <button type="button" class="offers-overview__card" data-modal="firmenyoga" aria-haspopup="dialog">
+            <img src="images/Uebersicht_2_Image_Ina.png" alt="Firmenyoga">
+          </button>
+          <button type="button" class="offers-overview__card" data-modal="nuad-thai" aria-haspopup="dialog">
+            <img src="images/Uebersicht_3_Image_Ina.png" alt="Nuad Thai">
+          </button>
+          <button type="button" class="offers-overview__card" data-modal="sound-bath" aria-haspopup="dialog">
+            <img src="images/Uebersicht_4_Image_Ina.png" alt="Sound Bath">
+          </button>
+        </div>
+      </div>
+      <div class="wavy-divider wavy-divider--yellow-lavender" aria-hidden="true">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="wavy-divider__line-lavender" d="M0,30 C150,60 350,0 600,30 C850,60 1050,0 1200,30" fill="none" stroke="#e0d8eb" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </section>
+    <section class="yoga-courses" id="yoga-kurse">
+      <div class="yoga-courses__inner">
+        <div class="yoga-courses__header">
+          <div class="yoga-courses__header-left">
+            <img src="Icons/LightBulb_Violet_Image_Ina.png" alt="" class="yoga-courses__icon" aria-hidden="true">
+            <h2 class="yoga-courses__title section-title">YOGA KURSE</h2>
+          </div>
+          <div class="yoga-courses__overview">
+            <div class="yoga-courses__cards">
+              <div class="yoga-courses__location-cards">
+                <div class="yoga-courses__card yoga-courses__card--location">
+                  <h3 class="yoga-courses__card-title"><span class="yoga-courses__card-title-in">in</span> <span class="yoga-courses__card-title-place">Rüstorf</span></h3>
+                  <p class="yoga-courses__card-schedule">jeden Dienstag</p>
+                  <p class="yoga-courses__card-schedule">18.15 – 19.30</p>
+                  <p class="yoga-courses__card-location">VAZ Rüstorf</p>
+                  <p class="yoga-courses__card-note">*Startzeit im Sommer: 19.15</p>
+                </div>
+                <div class="yoga-courses__card yoga-courses__card--location yoga-courses__card--ohlsdorf">
+                  <h3 class="yoga-courses__card-title"><span class="yoga-courses__card-title-in">in</span> <span class="yoga-courses__card-title-place">Ohlsdorf</span></h3>
+                  <p class="yoga-courses__card-schedule">jeden Donnerstag</p>
+                  <p class="yoga-courses__card-schedule">17.15 – 18.30</p>
+                  <p class="yoga-courses__card-location">Mezzo Ohlsdorf</p>
+                  <p class="yoga-courses__card-note">*Sommerpause: Juli – August</p>
+                </div>
+              </div>
+              <div class="yoga-courses__card yoga-courses__card--prices">
+                <h3 class="yoga-courses__card-title yoga-courses__card-title--prices">Preise:</h3>
+                <div class="yoga-courses__price-list">
+                  <p class="yoga-courses__price-item"><span class="yoga-courses__price-label">Drop-in</span> <span class="yoga-courses__price-value">€ 19,-</span></p>
+                  <p class="yoga-courses__price-item"><span class="yoga-courses__price-label">5er Block</span> <span class="yoga-courses__price-value">€ 90,-</span></p>
+                  <p class="yoga-courses__price-item"><span class="yoga-courses__price-label">10er Block</span> <span class="yoga-courses__price-value">€ 165,-</span></p>
+                </div>
+                <p class="yoga-courses__card-note yoga-courses__card-note--prices">(Einheiten á 90 Minuten)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="yoga-courses__text">Mit einem Block kannst du flexibel an allen laufenden Kursen (Ohlsdorf und Rüstorf) teilnehmen. Der Block ist für ein ganzes Jahr gültig und bietet dir die Freiheit, die Stunden nach deinem eigenen Zeitplan zu wählen. Du kannst also in Ruhe die Einheiten nutzen, die zu dir und deinem Alltag passen.</p>
+        <div class="yoga-courses__cta">
+          <p class="yoga-courses__info-link">Interesse geweckt?</p>
+          <p class="yoga-courses__closing">Ich freue mich auf deine Nachricht!</p>
+          <a href="#kontakt" class="yoga-courses__btn btn-img btn-img--full" aria-label="Kontaktiere mich">
+          <img src="Buttons/Button_Kontaktiere_Mich.png" alt="">
+        </a>
+        </div>
+      </div>
+      <div class="wavy-divider wavy-divider--lavender-green" aria-hidden="true">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,30 C150,60 350,0 600,30 C850,60 1050,0 1200,30 L1200,60 L0,60 Z" fill="#bdfbb6"/>
+        </svg>
+      </div>
+    </section>
+    <section class="events" id="events">
+      <div class="events__inner">
+        <h2 class="events__title section-title">events</h2>
+        <div class="events__grid">
+            <article class="events__card" data-event="1">
+              <div class="events__card-image-wrap">
+                <img src="images/Fruehstueck_Image_Ina.png" alt="Yoga & Frühstück">
+              </div>
+              <div class="events__card-body">
+                <h3 class="events__card-title">yoga & frühstück</h3>
+                <p class="events__card-meta">21.02.2026</p>
+                <p class="events__card-meta">08.00 – 10.00</p>
+                <p class="events__card-meta">Hois'n Wirt</p>
+                <p class="events__card-meta">Gmunden</p>
+                <button type="button" class="events__card-btn btn-img" data-modal="event-1">
+                  <img src="Buttons/Button_Green_Images_Ina.png" alt="">
+                  <span>MEHR DAZU</span>
+                </button>
+              </div>
+            </article>
+            <article class="events__card" data-event="2">
+              <div class="events__card-image-wrap">
+                <img src="images/HeroUeberMich_Image_Ina_Desktop.png" alt="Yoga & Wellness">
+              </div>
+              <div class="events__card-body">
+                <h3 class="events__card-title">yoga & wellness</h3>
+                <p class="events__card-meta">20.02.2026</p>
+                <p class="events__card-meta">14.00 – 21.15</p>
+                <p class="events__card-meta">Hois'n Wirt</p>
+                <p class="events__card-meta">Gmunden</p>
+                <button type="button" class="events__card-btn btn-img" data-modal="event-2">
+                  <img src="Buttons/Button_Green_Images_Ina.png" alt="">
+                  <span>MEHR DAZU</span>
+                </button>
+              </div>
+            </article>
+            <article class="events__card" data-event="3">
+              <div class="events__card-image-wrap">
+                <img src="images/Retreat_Image_Ina.png" alt="One Night Retreat">
+              </div>
+              <div class="events__card-body">
+                <h3 class="events__card-title">one night retreat</h3>
+                <p class="events__card-meta">20 – 21.02.2026</p>
+                <p class="events__card-meta">1 Übernachtung im DZ, Frühstück, 2 Yoga-Einheiten, Zugang zum Wellnessbereich</p>
+                <p class="events__card-meta">Hois'n Wirt</p>
+                <p class="events__card-meta">Gmunden</p>
+                <button type="button" class="events__card-btn btn-img" data-modal="event-3">
+                  <img src="Buttons/Button_Green_Images_Ina.png" alt="">
+                  <span>MEHR DAZU</span>
+                </button>
+              </div>
+            </article>
+        </div>
+      </div>
+      <div class="wavy-divider wavy-divider--green-lavender" aria-hidden="true">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,30 C150,60 350,0 600,30 C850,60 1050,0 1200,30 L1200,60 L0,60 Z" fill="#e0d8eb"/>
+        </svg>
+      </div>
+    </section>
+    <section class="sound-bath" id="sound-bath">
+      <div class="sound-bath__inner">
+
+        <h2 class="sound-bath__title section-title">Sound Bath</h2>
+
+        <div class="sound-bath__row">
+          <div class="sound-bath__blob-wrap">
+            <img src="images/Angebote_2_Image_Ina.png" alt="Sound Bath" class="sound-bath__blob-img sound-bath__blob-img--1">
+          </div>
+          <p class="sound-bath__text">Genieße eine Reise durch Schwingung und Stille, die dein gesamtes System tief regeneriert. Die sanften Klänge von Klangschalen und Koshis lösen Stress und schenken dir ein Gefühl von vollkommener Ruhe.</p>
+        </div>
+
+        <div class="sound-bath__cta">
+          <a href="sound-bath.html" class="sound-bath__btn btn-img">
+            <img src="Buttons/Button_Yellow_1_Images_Ina.png" alt="">
+            <span>SOUND BATH ANGEBOT</span>
+          </a>
+          <button type="button" class="sound-bath__was-link modal__link" data-modal="sound-bath-was">
+            WAS DICH ERWARTET <img src="Icons/Pfeile_yellow.png" alt="" class="modal__link-arrow">
+          </button>
+        </div>
+
+      </div>
+      <div class="wavy-divider wavy-divider--lavender-coral" aria-hidden="true">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,30 C150,60 350,0 600,30 C850,60 1050,0 1200,30 L1200,60 L0,60 Z" fill="#ffdbb1"/>
+        </svg>
+      </div>
+    </section>
+
+    <section class="nuad-thai" id="nuad-thai">
+      <div class="nuad-thai__inner">
+
+        <h2 class="nuad-thai__title section-title">Nuad Thai<br>Massage</h2>
+
+        <div class="nuad-thai__row">
+          <p class="nuad-thai__text">Erlebe eine Art "Passives Yoga", das durch achtsame Druckpunkte und Dehnungen den Energiefluss anregt. Du darfst vollkommen loslassen und genießen, während ich deinen Körper individuell durch die Praxis führe.</p>
+          <div class="nuad-thai__blob-wrap">
+            <img src="images/Angebote_3_Image_Ina.png" alt="Nuad Thai Massage" class="nuad-thai__blob-img nuad-thai__blob-img--1">
+          </div>
+        </div>
+
+        <div class="nuad-thai__cta">
+          <a href="nuad-thai.html" class="nuad-thai__btn btn-img">
+            <img src="Buttons/Button_BlueBlack_Images_Ina.png" alt="">
+            <span>NUAD-ANGEBOT</span>
+          </a>
+          <button type="button" class="nuad-thai__was-link modal__link" data-modal="nuad-thai-was">
+            WAS DICH ERWARTET <img src="Icons/PfeilLinks_blue.png" alt="" class="modal__link-arrow">
+          </button>
+        </div>
+
+      </div>
+      <div class="wavy-divider wavy-divider--coral-blue" aria-hidden="true">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,30 C150,60 350,0 600,30 C850,60 1050,0 1200,30 L1200,60 L0,60 Z" fill="#b0dbe0"/>
+        </svg>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <div class="testimonials__inner">
+        <h2 class="testimonials__title section-title">Teilnehmer Stimmen</h2>
+        <div class="testimonials__slider-wrap">
+          <button type="button" class="testimonials__nav testimonials__nav--prev" aria-label="Vorherige Stimme">
+            <img src="Icons/PfeilLinks_White.png" alt="" width="24" height="24">
+          </button>
+          <div class="testimonials__track-wrap">
+            <div class="testimonials__track">
+              <blockquote class="testimonials__item">
+                <p class="testimonials__quote">„Ina ist eine wahnsinnig wundervolle Yogalehrerin. In ihrer Stunde achtet sie auf eine gute Ausführung und ihre angenehme Stimme hilft durch stressige Situationen ruhig und gelassen zu bleiben."</p>
+              </blockquote>
+              <blockquote class="testimonials__item">
+                <p class="testimonials__quote">„Deine aufrichtige, wärmende und achtsame Art ist wundervoll und bereichert mich durch dein ganzheitliches Yoga."</p>
+                <cite class="testimonials__cite">Anna S.</cite>
+              </blockquote>
+              <blockquote class="testimonials__item">
+                <p class="testimonials__quote">„Eine wundervolle und sehr entspannte Massage, die Körper und Geist in Einklang gebracht und genährt."</p>
+              </blockquote>
+              <blockquote class="testimonials__item">
+                <p class="testimonials__quote">„Mit viel Fachwissen und Professionalität hat Ina unsere persönliche Gesundheitsreise optimal bereichert. Das Feedback unserer Mitarbeiter war durchwegs positiv."</p>
+                <cite class="testimonials__cite">greiner packaging</cite>
+              </blockquote>
+            </div>
+          </div>
+          <button type="button" class="testimonials__nav testimonials__nav--next" aria-label="Nächste Stimme">
+            <img src="Icons/PfeilRechts_White.png" alt="" width="24" height="24">
+          </button>
+        </div>
+        <div class="testimonials__dots" aria-hidden="true">
+          <button class="testimonials__dot testimonials__dot--active"></button>
+          <button class="testimonials__dot"></button>
+          <button class="testimonials__dot"></button>
+          <button class="testimonials__dot"></button>
+        </div>
+      </div>
+      <div class="wavy-divider wavy-divider--blue-dark" aria-hidden="true">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,30 C150,60 350,0 600,30 C850,60 1050,0 1200,30 L1200,60 L0,60 Z" fill="#67716f"/>
+        </svg>
+      </div>
+    </section>
+
+    <section class="contact" id="kontakt">
+      <div class="contact__inner">
+        <h2 class="contact__title section-title">Kontakt</h2>
+        <p class="contact__subline">Ich freue mich auf deine Nachricht!</p>
+        <p class="contact__intro">Gerne beantworte ich deine persönlichen Anfragen für maßgeschneiderte Kurse oder vielseitige Impulse (Workshops).</p>
+        <div class="contact__info">
+          <a href="tel:+4369919112175" class="contact__item">
+            <img src="Icons/Telefon_White.png" alt="" class="contact__icon" width="24" height="24">
+            <span>+43 699 191 121 75</span>
+          </a>
+          <a href="mailto:corina.ung@gmx.at" class="contact__item">
+            <img src="Icons/Mail_White.png" alt="" class="contact__icon" width="24" height="24">
+            <span>corina.ung@gmx.at</span>
+          </a>
+        </div>
+        <div class="contact__social">
+          <p class="contact__social-text">Folge mir auf Social Media für aktuelle News, Stundenpläne und Angebote.</p>
+          <div class="contact__social-links">
+            <a href="https://www.instagram.com/iina.yoga/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <img src="Icons/Instagram_White.png" alt="" width="32" height="32">
+            </a>
+            <a href="https://wa.me/4369919112175" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <img src="Icons/WhatsApp_White.png" alt="" width="32" height="32">
+            </a>
+          </div>
+        </div>
+        <a href="https://chat.whatsapp.com/DwraiBvZvRE1MqUzv0vqql" target="_blank" rel="noopener noreferrer" class="contact__wa-btn btn-img">
+          <img src="Buttons/Button_Green_Images_Ina.png" alt="">
+          <span>JETZT WHATSAPP<br>CHAT BEITRETEN</span>
+        </a>
+        <address class="contact__address">
+          Corina Ung<br>
+          Kerblweg 45<br>
+          4663 Laakirchen
+        </address>
+        <div class="contact__maps">
+          <a href="https://maps.app.goo.gl/spmmWdakpuX3nmtu5" target="_blank" rel="noopener noreferrer" class="contact__map-link">
+            VAZ Rüstorf auf Google Maps →
+          </a>
+          <a href="https://maps.app.goo.gl/RtTA4rUdqrWntqek8" target="_blank" rel="noopener noreferrer" class="contact__map-link">
+            Mezzo Ohlsdorf auf Google Maps →
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <a href="/" class="footer__logo">
+        <img src="logo/INA_YOGA_LOGO_HEADER_BROAD_transparent.png" alt="ina.YOGA" height="32">
+      </a>
+      <nav class="footer__links" aria-label="Footer Navigation">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+      <p class="footer__copy">© 2025 ina.YOGA · Corina Ung</p>
+    </div>
+  </footer>
+
+  <!-- Yoga-Angebot Modal (Schritt 10) -->
+  <div class="modal" id="modal-yoga" role="dialog" aria-modal="true" aria-labelledby="modal-yoga-title" aria-hidden="true">
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="modal__container">
+      <button type="button" class="modal__close" aria-label="Schließen" data-modal-close>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="modal__content">
+        <div class="modal__header-wrap">
+          <div class="modal__image-wrap">
+            <img src="images/Uebersicht_1_Image_Ina.png" alt="Yoga mit Ina" class="modal__image">
+          </div>
+          <h2 class="modal__title" id="modal-yoga-title"><span class="modal__title-main">Yoga</span> <span class="modal__title-sub">mit Ina</span></h2>
+        </div>
+        <div class="modal__body">
+          <p class="modal__text">Vinyasa Flow, Gentle Yoga, Pranayama, Meditation, Yoga nidra und Workshops – ruhige und dynamische Klassen für jeden. Hatha, Vinyasa, Yin und Einzelstunden nach Maß.</p>
+          <div class="modal__buttons">
+            <a href="#yoga-kurse" class="modal__btn btn-img">
+              <img src="Buttons/Button_Yellow_1_Images_Ina.png" alt="">
+              <span>Yoga-Kurse</span>
+            </a>
+            <a href="#events" class="modal__btn btn-img">
+              <img src="Buttons/Button_Yellow_1_Images_Ina.png" alt="">
+              <span>Special Events</span>
+            </a>
+            <a href="firmenyoga.html" class="modal__btn btn-img">
+              <img src="Buttons/Button_Yellow_1_Images_Ina.png" alt="">
+              <span>Firmenyoga</span>
+            </a>
+          </div>
+          <button type="button" class="modal__link" data-modal="yoga-was-dich-erwartet">
+            WAS DICH ERWARTET <img src="Icons/Pfeile_violet.png" alt="" class="modal__link-arrow">
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Event-Pop-ups (Schritt 17) -->
+  <div class="modal" id="modal-event-1" role="dialog" aria-modal="true" aria-labelledby="modal-event-1-title" aria-hidden="true">
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="modal__container modal__container--event">
+      <button type="button" class="modal__close" aria-label="Schließen" data-modal-close>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="modal__content">
+        <div class="modal__image-wrap modal__image-wrap--event">
+          <img src="images/Fruehstueck_Image_Ina.png" alt="Yoga & Frühstück" class="modal__image">
+        </div>
+        <div class="modal__body">
+          <h2 class="modal__title" id="modal-event-1-title">yoga & frühstück</h2>
+          <p class="modal__text">Starte deinen Tag mit Yoga und einem gemeinsamen Brunch in entspannter Atmosphäre.</p>
+          <p class="modal__text modal__text--meta">21.02.2026 · 08.00 – 10.00 · Hois'n Wirt, Gmunden</p>
+          <a href="#kontakt" class="modal__btn btn-img events-modal__reserve">
+            <img src="Buttons/Button_Green_Images_Ina.png" alt="">
+            <span>RESERVIEREN</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-event-2" role="dialog" aria-modal="true" aria-labelledby="modal-event-2-title" aria-hidden="true">
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="modal__container modal__container--event">
+      <button type="button" class="modal__close" aria-label="Schließen" data-modal-close>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="modal__content">
+        <div class="modal__image-wrap modal__image-wrap--event">
+          <img src="images/HeroUeberMich_Image_Ina_Desktop.png" alt="Yoga & Wellness" class="modal__image">
+        </div>
+        <div class="modal__body">
+          <h2 class="modal__title" id="modal-event-2-title">yoga & wellness</h2>
+          <p class="modal__text">Innere Harmonie und Tiefenentspannung – lass dich von Klangschalen und Gongs in eine wohltuende Klangreise entführen.</p>
+          <p class="modal__text modal__text--meta">20.02.2026 · 14.00 – 21.15 · Hois'n Wirt, Gmunden</p>
+          <a href="#kontakt" class="modal__btn btn-img events-modal__reserve">
+            <img src="Buttons/Button_Green_Images_Ina.png" alt="">
+            <span>RESERVIEREN</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-event-3" role="dialog" aria-modal="true" aria-labelledby="modal-event-3-title" aria-hidden="true">
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="modal__container modal__container--event">
+      <button type="button" class="modal__close" aria-label="Schließen" data-modal-close>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="modal__content">
+        <div class="modal__image-wrap modal__image-wrap--event">
+          <img src="images/Retreat_Image_Ina.png" alt="One Night Retreat" class="modal__image">
+        </div>
+        <div class="modal__body">
+          <h2 class="modal__title" id="modal-event-3-title">one night retreat</h2>
+          <p class="modal__text">1 Übernachtung im DZ, Frühstück, 2 Yoga-Einheiten, Zugang zum Wellnessbereich – eine Nacht voller Yoga, Klang und Entspannung.</p>
+          <p class="modal__text modal__text--meta">20 – 21.02.2026 · Hois'n Wirt, Gmunden</p>
+          <a href="#kontakt" class="modal__btn btn-img events-modal__reserve">
+            <img src="Buttons/Button_Green_Images_Ina.png" alt="">
+            <span>RESERVIEREN</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Yoga – Was dich erwartet Modal (Schritt 11) -->
+  <div class="modal" id="modal-yoga-was-dich-erwartet" role="dialog" aria-modal="true" aria-labelledby="modal-yoga-was-title" aria-hidden="true">
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="modal__container modal__container--was">
+      <button type="button" class="modal__close" aria-label="Schließen" data-modal-close>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="modal__content">
+        <div class="modal__header-wrap">
+          <div class="modal__image-wrap">
+            <img src="images/WasDichErwartet_1_Image_Ina.png" alt="Was dich erwartet – Yoga mit Ina" class="modal__image">
+          </div>
+          <h2 class="modal__title" id="modal-yoga-was-title"><span class="modal__title-main">Yoga</span> <span class="modal__title-sub">mit Ina</span></h2>
+        </div>
+        <div class="modal__body">
+          <p class="modal__text">In meinen Yogastunden erwartet dich eine Atmosphäre des Wohlwohls und der Achtsamkeit. Jede Einheit ist individuell und auf deine Bedürfnisse abgestimmt – von dynamischen Vinyasa Flows bis hin zu ruhigen Yin-Sequenzen. Ich begleite dich auf deinem persönlichen Weg mit viel Aufmerksamkeit für eine korrekte Ausführung und einer Energie, die dich durch die Stunde trägt.</p>
+          <a href="#yoga-kurse" class="modal__btn btn-img" data-modal-close>
+            <img src="Buttons/Button_Violet_Images_Ina.png" alt="">
+            <span>YOGA-KURSE</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sound Bath Modal (Schritt 12) -->
+  <div class="modal" id="modal-sound-bath" role="dialog" aria-modal="true" aria-labelledby="modal-sound-bath-title" aria-hidden="true">
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="modal__container modal__container--sound-bath">
+      <button type="button" class="modal__close" aria-label="Schließen" data-modal-close>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="modal__content">
+        <div class="modal__header-wrap">
+          <div class="modal__image-wrap">
+            <img src="images/Uebersicht_2_Image_Ina.png" alt="Sound Bath" class="modal__image">
+          </div>
+          <h2 class="modal__title" id="modal-sound-bath-title">Sound Bath</h2>
+        </div>
+        <div class="modal__body">
+          <p class="modal__text">Eine wohltuende Klangreise für Körper, Geist und Seele. Klangschalen, Gongs und Koshi-Klangspiele umhüllen dich mit sanften Schwingungen – sie bauen Stress ab, verbessern die Schlafqualität und ermöglichen tiefe Entspannung.</p>
+          <button type="button" class="modal__link" data-modal="sound-bath-was">
+            WAS DICH ERWARTET <img src="Icons/Pfeile_yellow.png" alt="" class="modal__link-arrow">
+          </button>
+          <div class="modal__buttons">
+            <a href="#sound-bath" class="modal__btn btn-img" data-modal-close>
+              <img src="Buttons/Button_Yellow_1_Images_Ina.png" alt="">
+              <span>SOUND BATH ANGEBOT</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sound Bath – Was dich erwartet Modal -->
+  <div class="modal" id="modal-sound-bath-was" role="dialog" aria-modal="true" aria-labelledby="modal-sound-bath-was-title" aria-hidden="true">
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="modal__container modal__container--sound-bath">
+      <button type="button" class="modal__close" aria-label="Schließen" data-modal-close>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="modal__content">
+        <div class="modal__header-wrap">
+          <div class="modal__image-wrap">
+            <img src="images/WasDichErwartet_2_Image_Ina.png" alt="Was dich erwartet – Sound Bath" class="modal__image">
+          </div>
+          <h2 class="modal__title" id="modal-sound-bath-was-title">Sound Bath mit Ina</h2>
+        </div>
+        <div class="modal__body">
+          <p class="modal__text">Ich schaffe für dich einen Raum, in dem du vom Tun ins reine Sein eintauchen und den Alltag hinter dir lassen darfst. Dich erwartet eine achtsam geführte Klangreise, die dich tief entspannt und geerdet zurück in deine Mitte führt.</p>
+          <a href="sound-bath.html" class="modal__btn btn-img" data-modal-close>
+            <img src="Buttons/Button_Yellow_1_Images_Ina.png" alt="">
+            <span>SOUND BATH ANGEBOT</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nuad Thai Modal (Schritt 13) -->
+  <div class="modal" id="modal-nuad-thai" role="dialog" aria-modal="true" aria-labelledby="modal-nuad-thai-title" aria-hidden="true">
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="modal__container modal__container--nuad-thai">
+      <button type="button" class="modal__close" aria-label="Schließen" data-modal-close>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="modal__content">
+        <div class="modal__header-wrap">
+          <div class="modal__image-wrap">
+            <img src="images/Uebersicht_3_Image_Ina.png" alt="Nuad Thai Massage" class="modal__image">
+          </div>
+          <h2 class="modal__title" id="modal-nuad-thai-title">Nuad Thai Massage</h2>
+        </div>
+        <div class="modal__body">
+          <p class="modal__text">Berührt und tiefenwirksam. Sanfte Dehnungen, Akupressur und Energiearbeit lösen Blockaden und fördern den Energiefluss – für tiefe Entspannung und ein neues Körpergefühl. Dauer: 75 Min. | Preis: € 90,–</p>
+          <button type="button" class="modal__link" data-modal="nuad-thai-was">
+            WAS DICH ERWARTET <img src="Icons/PfeilLinks_blue.png" alt="" class="modal__link-arrow">
+          </button>
+          <div class="modal__buttons">
+            <a href="#nuad-thai" class="modal__btn btn-img" data-modal-close>
+              <img src="Buttons/Button_BlueBlack_Images_Ina.png" alt="">
+              <span>NUAD THAI ANGEBOT</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nuad Thai – Was dich erwartet Modal -->
+  <div class="modal" id="modal-nuad-thai-was" role="dialog" aria-modal="true" aria-labelledby="modal-nuad-thai-was-title" aria-hidden="true">
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="modal__container modal__container--nuad-thai">
+      <button type="button" class="modal__close" aria-label="Schließen" data-modal-close>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="modal__content">
+        <div class="modal__header-wrap">
+          <div class="modal__image-wrap">
+            <img src="images/WasDichErwartet_3_Image_Ina.png" alt="Was dich erwartet – Nuad Thai" class="modal__image">
+          </div>
+          <h2 class="modal__title" id="modal-nuad-thai-was-title">Nuad Thai Massage mit Ina</h2>
+        </div>
+        <div class="modal__body">
+          <p class="modal__text">Du brauchst absolut nichts zu tun, außer dich vertrauensvoll in die Bewegung hineinzuentspannen. Ich arbeite achtsam, langsam und genau auf deinen Körper abgestimmt – so entsteht ein Raum für mentale Ruhe und körperliche Freiheit. Jede Einheit ist dabei so individuell wie du selbst.</p>
+          <div class="modal__pricing-box">
+            <span class="modal__pricing-label">Preise:</span>
+            <div class="modal__pricing-grid">
+              <span>30 min</span><span>€ 40,-</span>
+              <span>60 min</span><span>€ 60,-</span>
+              <span>90 min</span><span>€ 95,-</span>
+            </div>
+          </div>
+          <p class="modal__gut-text">Gut zu wissen: Die Körperarbeit findet in bequemer Kleidung auf einer weichen Matte am Boden statt. Durch den Einsatz von Händen, Daumen und sanftem Körpergewicht werden Blockaden gelöst und deine Batterien wieder aufgeladen.</p>
+          <a href="nuad-thai.html" class="modal__btn btn-img" data-modal-close>
+            <img src="Buttons/Button_BlueBlack_Images_Ina.png" alt="">
+            <span>NUAD-ANGEBOT</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firmenyoga Modal -->
+  <div class="modal" id="modal-firmenyoga" role="dialog" aria-modal="true" aria-labelledby="modal-firmenyoga-title" aria-hidden="true">
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="modal__container modal__container--firmenyoga">
+      <button type="button" class="modal__close" aria-label="Schließen" data-modal-close>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="modal__content">
+        <div class="modal__header-wrap">
+          <div class="modal__image-wrap">
+            <img src="images/Uebersicht_2_Image_Ina.png" alt="Firmenyoga mit Ina" class="modal__image">
+          </div>
+          <h2 class="modal__title" id="modal-firmenyoga-title"><span class="modal__title-main">Firmen</span><span class="modal__title-sub">yoga</span></h2>
+        </div>
+        <div class="modal__body">
+          <p class="modal__text">Für mehr Fokus und Energie im Team: maßgeschneiderte Yoga-Einheiten – vor Ort oder online. Regelmäßiges Yoga am Arbeitsplatz stärkt Gesundheit, Konzentration und Teamgeist gleichermaßen.</p>
+          <div class="modal__buttons">
+            <a href="firmenyoga.html" class="modal__btn btn-img">
+              <img src="Buttons/Button_Yellow_1_Images_Ina.png" alt="">
+              <span>MEHR ERFAHREN</span>
+            </a>
+            <a href="index.html#kontakt" class="modal__btn btn-img">
+              <img src="Buttons/Button_Yellow_1_Images_Ina.png" alt="">
+              <span>ANFRAGE STELLEN</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

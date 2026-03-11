@@ -910,15 +910,15 @@ body.modal-open {
 
 .yoga-courses__header {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  gap: 1.5rem;
   margin-bottom: 1.5rem;
 }
 
 .yoga-courses__header-left {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: center;
   gap: 0.75rem;
   flex-shrink: 0;
 }
@@ -931,19 +931,17 @@ body.modal-open {
 
 .yoga-courses__title {
   font-family: var(--font-script);
-  font-size: 2.75rem;
+  font-size: 4rem;
   color: #000;
   margin: 0;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  transform: rotate(-180deg);
-  white-space: nowrap;
+  text-transform: lowercase;
   flex-shrink: 0;
 }
 
 .yoga-courses__overview {
-  flex: 1;
-  min-width: 0;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
 }
 
 .yoga-courses__text {
@@ -1143,7 +1141,7 @@ body.modal-open {
   }
 
   .yoga-courses__title {
-    font-size: 3rem;
+    font-size: 4.5rem;
   }
 
   .yoga-courses__text {
@@ -1176,7 +1174,7 @@ body.modal-open {
   }
 
   .yoga-courses__title {
-    font-size: 3.5rem;
+    font-size: 5rem;
   }
 
   .yoga-courses__info-link,

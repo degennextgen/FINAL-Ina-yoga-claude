@@ -1769,7 +1769,7 @@ body.modal-open {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  font-family: var(--font-body);
+  font-family: var(--font-accent);
   font-weight: 300;
   font-size: 0.875rem;
   text-transform: uppercase;

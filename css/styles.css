@@ -1261,6 +1261,7 @@ body.modal-open {
 .offer-slider__btn span {
   font-size: 0.875rem;
   padding: 1rem 1.5rem;
+  white-space: nowrap;
 }
 
 .offer-slider__nav-btn {

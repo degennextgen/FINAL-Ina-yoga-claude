@@ -10,11 +10,17 @@
   position: relative;
   min-height: 60vh;
   overflow: hidden;
+  isolation: isolate;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .subpage-hero__image-wrap {
   position: absolute;
   inset: 0;
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .subpage-hero__image-wrap picture {
@@ -41,6 +47,7 @@
   justify-content: center;
   padding: 3rem 1.5rem;
   text-align: center;
+  transform: translateZ(0);
 }
 
 .subpage-hero__headline {

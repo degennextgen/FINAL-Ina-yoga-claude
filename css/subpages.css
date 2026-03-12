@@ -189,7 +189,7 @@
   position: relative;
   z-index: 10;
   background-color: var(--color-lavender);
-  padding: 5rem 1.5rem 4rem;
+  padding: 5rem 1.5rem 0;
 }
 
 .soft-facts__inner {
@@ -300,6 +300,13 @@
   .soft-facts__content {
     flex: 1;
   }
+}
+
+/* ============================================
+   Über mich – Testimonials (subpage override)
+   ============================================ */
+.testimonials {
+  padding-top: 0;
 }
 
 /* ============================================
@@ -475,7 +482,7 @@
    ============================================ */
 .firmenyoga-ausgleich {
   background-color: var(--color-light-yellow);
-  padding: 4rem 1.5rem;
+  padding: 4rem 1.5rem 0;
 }
 
 .firmenyoga-ausgleich__inner {

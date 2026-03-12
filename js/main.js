@@ -207,3 +207,53 @@ document.addEventListener('DOMContentLoaded', function () {
   goTo(0);
   start();
 });
+
+/**
+ * Generic Offer Slider factory (Sound Bath + Nuad Thai)
+ */
+function initOfferSlider(trackId, nextId, prevId, sectionId, reversed) {
+  document.addEventListener('DOMContentLoaded', function () {
+    var track   = document.getElementById(trackId);
+    var slide2  = document.querySelector('#' + sectionId + ' .offer-slider__slide--2');
+    var nextBtn = document.getElementById(nextId);
+    var prevBtn = document.getElementById(prevId);
+    if (!track || !nextBtn || !prevBtn) return;
+    // reversed: Slide 2 ist links im DOM → start bei -100%, WAS DICH ERWARTET → 0%
+    if (reversed) track.style.transform = 'translateX(-100%)';
+    function show(open) {
+      track.style.transform = reversed
+        ? 'translateX(' + (open ? 0 : -100) + '%)'
+        : 'translateX(-' + (open ? 100 : 0) + '%)';
+      slide2.setAttribute('aria-hidden', open ? 'false' : 'true');
+    }
+    nextBtn.addEventListener('click', function () { show(true); });
+    prevBtn.addEventListener('click', function () { show(false); });
+  });
+}
+initOfferSlider('sb-track', 'sb-next', 'sb-prev', 'sound-bath', true);
+initOfferSlider('nt-track', 'nt-next', 'nt-prev', 'nuad-thai', false);
+
+/**
+ * Yoga Intro Slider
+ */
+document.addEventListener('DOMContentLoaded', function () {
+  var track = document.querySelector('.yoga-intro__track');
+  var slide2 = document.querySelector('.yoga-intro__slide--2');
+  var nextBtn = document.getElementById('yoga-intro-next');
+  var prevBtn = document.getElementById('yoga-intro-prev');
+
+  if (!track || !nextBtn || !prevBtn) return;
+
+  function showSlide(index) {
+    track.style.transform = 'translateX(-' + (index * 100) + '%)';
+    slide2.setAttribute('aria-hidden', index === 0 ? 'true' : 'false');
+  }
+
+  nextBtn.addEventListener('click', function () {
+    showSlide(1);
+  });
+
+  prevBtn.addEventListener('click', function () {
+    showSlide(0);
+  });
+});

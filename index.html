@@ -95,19 +95,92 @@
       <div class="offers-overview__inner">
         <h2 class="offers-overview__title section-title">meine angebote</h2>
         <div class="offers-overview__grid">
-          <button type="button" class="offers-overview__card" data-modal="yoga" aria-haspopup="dialog">
+          <a href="#yoga-intro" class="offers-overview__card">
             <img src="images/Uebersicht_1_Image_Ina.png" alt="Yoga">
-          </button>
-          <button type="button" class="offers-overview__card" data-modal="firmenyoga" aria-haspopup="dialog">
+          </a>
+          <a href="firmenyoga.html" class="offers-overview__card">
             <img src="images/Uebersicht_2_Image_Ina.png" alt="Firmenyoga">
-          </button>
-          <button type="button" class="offers-overview__card" data-modal="nuad-thai" aria-haspopup="dialog">
+          </a>
+          <a href="#sound-bath" class="offers-overview__card">
             <img src="images/Uebersicht_3_Image_Ina.png" alt="Nuad Thai">
-          </button>
-          <button type="button" class="offers-overview__card" data-modal="sound-bath" aria-haspopup="dialog">
+          </a>
+          <a href="#nuad-thai" class="offers-overview__card">
             <img src="images/Uebersicht_4_Image_Ina.png" alt="Sound Bath">
-          </button>
+          </a>
         </div>
+      </div>
+      <div class="wavy-divider wavy-divider--yellow-lavender" aria-hidden="true">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="wavy-divider__line-lavender" d="M0,30 C150,60 350,0 600,30 C850,60 1050,0 1200,30" fill="none" stroke="#e0d8eb" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </section>
+    <section class="yoga-intro" id="yoga-intro">
+      <div class="yoga-intro__track">
+
+        <!-- Slide 1: Übersicht – Text links, linke Bildhälfte rechts -->
+        <div class="yoga-intro__slide yoga-intro__slide--1">
+          <div class="yoga-intro__inner">
+            <div class="yoga-intro__layout">
+              <div class="yoga-intro__col yoga-intro__col--text">
+                <h2 class="yoga-intro__title section-title">Yoga</h2>
+                <p class="yoga-intro__text">Fließe mit mir durch kreative Hatha-Flows, die dich stärken und erden. Zwischen kraftvoller Energie und tiefer Entspannung findest du hier Raum, ganz du selbst zu sein.</p>
+                <div class="yoga-intro__buttons">
+                  <a href="#yoga-kurse" class="yoga-intro__btn btn-img">
+                    <img src="Buttons/Button_Violet_Images_Ina.png" alt="">
+                    <span>YOGA-KURSE</span>
+                  </a>
+                  <a href="#events" class="yoga-intro__btn btn-img">
+                    <img src="Buttons/Button_Violet_Images_Ina.png" alt="">
+                    <span>EVENTS</span>
+                  </a>
+                  <a href="firmenyoga.html" class="yoga-intro__btn btn-img">
+                    <img src="Buttons/Button_Violet_Images_Ina.png" alt="">
+                    <span>FIRMENYOGA</span>
+                  </a>
+                </div>
+              </div>
+              <div class="yoga-intro__col yoga-intro__col--image">
+                <div class="yoga-intro__image-wrap">
+                  <img src="images/Angebote_1_Image_Ina.png" alt="Yoga mit Ina" class="yoga-intro__image yoga-intro__image--left">
+                </div>
+                <button type="button" class="yoga-intro__nav-btn" id="yoga-intro-next" aria-label="Was dich erwartet">
+                  <span class="yoga-intro__nav-text">WAS DICH ERWARTET?</span>
+                  <img src="Icons/Pfeile_violet.png" alt="" class="yoga-intro__nav-arrow">
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: rechte Bildhälfte links, Text rechts -->
+        <div class="yoga-intro__slide yoga-intro__slide--2" aria-hidden="true">
+          <div class="yoga-intro__inner">
+            <div class="yoga-intro__layout">
+              <div class="yoga-intro__col yoga-intro__col--image">
+                <div class="yoga-intro__image-wrap">
+                  <img src="images/Angebote_1_Image_Ina.png" alt="Yoga mit Ina" class="yoga-intro__image yoga-intro__image--right">
+                </div>
+                <button type="button" class="yoga-intro__nav-btn yoga-intro__nav-btn--back" id="yoga-intro-prev" aria-label="Zurück">
+                  <img src="Icons/Pfeile_violet.png" alt="" class="yoga-intro__nav-arrow yoga-intro__nav-arrow--flipped">
+                  <span class="yoga-intro__nav-text">ZURÜCK</span>
+                </button>
+              </div>
+              <div class="yoga-intro__col yoga-intro__col--text">
+                <div class="yoga-intro__title-wrap">
+                  <h2 class="yoga-intro__title section-title">Yoga</h2>
+                  <span class="yoga-intro__subtitle">mit Ina</span>
+                </div>
+                <p class="yoga-intro__text">Meine Stunden sind kraftvoll, energetisierend und kreativ – eine moderne Interpretation des klassischen Hatha Yoga. Es geht nicht um Perfektion, sondern darum, deine eigenen Grenzen im Tempo zu erkunden. Dich erwartet eine abwechslungsreiche Praxis, die dich fordert und gleichzeitig tief entspannt ankommen lässt.</p>
+                <a href="#yoga-kurse" class="yoga-intro__btn btn-img">
+                  <img src="Buttons/Button_Violet_Images_Ina.png" alt="">
+                  <span>YOGA-KURSE</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
       <div class="wavy-divider wavy-divider--yellow-lavender" aria-hidden="true">
         <svg viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -163,7 +236,7 @@
       </div>
       <div class="wavy-divider wavy-divider--lavender-green" aria-hidden="true">
         <svg viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,30 C150,60 350,0 600,30 C850,60 1050,0 1200,30 L1200,60 L0,60 Z" fill="#bdfbb6"/>
+          <path d="M0,30 C150,60 350,0 600,30 C850,60 1050,0 1200,30 L1200,60 L0,60 Z" fill="#c8dfb6"/>
         </svg>
       </div>
     </section>
@@ -182,7 +255,7 @@
                 <p class="events__card-meta">Hois'n Wirt</p>
                 <p class="events__card-meta">Gmunden</p>
                 <button type="button" class="events__card-btn btn-img" data-modal="event-1">
-                  <img src="Buttons/Button_Green_Images_Ina.png" alt="">
+                  <img src="Buttons/Button_Violet_Images_Ina.png" alt="">
                   <span>MEHR DAZU</span>
                 </button>
               </div>
@@ -198,7 +271,7 @@
                 <p class="events__card-meta">Hois'n Wirt</p>
                 <p class="events__card-meta">Gmunden</p>
                 <button type="button" class="events__card-btn btn-img" data-modal="event-2">
-                  <img src="Buttons/Button_Green_Images_Ina.png" alt="">
+                  <img src="Buttons/Button_Violet_Images_Ina.png" alt="">
                   <span>MEHR DAZU</span>
                 </button>
               </div>
@@ -214,7 +287,7 @@
                 <p class="events__card-meta">Hois'n Wirt</p>
                 <p class="events__card-meta">Gmunden</p>
                 <button type="button" class="events__card-btn btn-img" data-modal="event-3">
-                  <img src="Buttons/Button_Green_Images_Ina.png" alt="">
+                  <img src="Buttons/Button_Violet_Images_Ina.png" alt="">
                   <span>MEHR DAZU</span>
                 </button>
               </div>
@@ -227,26 +300,60 @@
         </svg>
       </div>
     </section>
-    <section class="sound-bath" id="sound-bath">
-      <div class="sound-bath__inner">
+    <section class="offer-slider offer-slider--sb" id="sound-bath">
+      <div class="offer-slider__track" id="sb-track">
 
-        <h2 class="sound-bath__title section-title">Sound Bath</h2>
-
-        <div class="sound-bath__row">
-          <div class="sound-bath__blob-wrap">
-            <img src="images/Angebote_2_Image_Ina.png" alt="Sound Bath" class="sound-bath__blob-img sound-bath__blob-img--1">
+        <!-- Sound Bath Slide 2: Text links, Bild RECHTS (linke Hälfte) – zuerst im DOM -->
+        <div class="offer-slider__slide offer-slider__slide--2" aria-hidden="true">
+          <div class="offer-slider__inner">
+            <div class="offer-slider__layout">
+              <div class="offer-slider__col offer-slider__col--text">
+                <div class="offer-slider__title-wrap">
+                  <h2 class="offer-slider__title section-title">Sound Bath</h2>
+                  <span class="offer-slider__subtitle offer-slider__subtitle--sb">mit Ina</span>
+                </div>
+                <p class="offer-slider__text">Ich schaffe für dich einen Raum, in dem du vom Tun ins reine Sein eintauchen und den Alltag hinter dir lassen darfst. Dich erwartet eine achtsam geführte Klangreise, die dich tief entspannt und geerdet zurück in deine Mitte führt.</p>
+                <a href="sound-bath.html" class="offer-slider__btn btn-img">
+                  <img src="Buttons/Button_Yellow_1_Images_Ina.png" alt="">
+                  <span>SOUND BATH ANGEBOT</span>
+                </a>
+              </div>
+              <div class="offer-slider__col offer-slider__col--image offer-slider__col--image-right">
+                <div class="offer-slider__image-wrap">
+                  <img src="images/Angebote_2_Image_Ina.png" alt="Sound Bath" class="offer-slider__image offer-slider__image--left">
+                </div>
+                <button type="button" class="offer-slider__nav-btn" id="sb-prev" aria-label="Zurück">
+                  <span class="offer-slider__nav-text">ZURÜCK</span>
+                  <img src="Icons/Pfeile_yellow.png" alt="" class="offer-slider__nav-arrow">
+                </button>
+              </div>
+            </div>
           </div>
-          <p class="sound-bath__text">Genieße eine Reise durch Schwingung und Stille, die dein gesamtes System tief regeneriert. Die sanften Klänge von Klangschalen und Koshis lösen Stress und schenken dir ein Gefühl von vollkommener Ruhe.</p>
         </div>
 
-        <div class="sound-bath__cta">
-          <a href="sound-bath.html" class="sound-bath__btn btn-img">
-            <img src="Buttons/Button_Yellow_1_Images_Ina.png" alt="">
-            <span>SOUND BATH ANGEBOT</span>
-          </a>
-          <button type="button" class="sound-bath__was-link modal__link" data-modal="sound-bath-was">
-            WAS DICH ERWARTET <img src="Icons/Pfeile_yellow.png" alt="" class="modal__link-arrow">
-          </button>
+        <!-- Sound Bath Slide 1: Bild LINKS (rechte Hälfte), Text rechts -->
+        <div class="offer-slider__slide offer-slider__slide--1">
+          <div class="offer-slider__inner">
+            <div class="offer-slider__layout">
+              <div class="offer-slider__col offer-slider__col--image offer-slider__col--image-left">
+                <div class="offer-slider__image-wrap">
+                  <img src="images/Angebote_2_Image_Ina.png" alt="Sound Bath" class="offer-slider__image offer-slider__image--right">
+                </div>
+                <button type="button" class="offer-slider__nav-btn" id="sb-next" aria-label="Was dich erwartet">
+                  <span class="offer-slider__nav-text">WAS DICH ERWARTET?</span>
+                  <img src="Icons/Pfeile_yellow.png" alt="" class="offer-slider__nav-arrow offer-slider__nav-arrow--flipped">
+                </button>
+              </div>
+              <div class="offer-slider__col offer-slider__col--text offer-slider__col--text-right">
+                <h2 class="offer-slider__title section-title">Sound Bath</h2>
+                <p class="offer-slider__text">Genieße eine Reise durch Schwingung und Stille, die dein gesamtes System tief regeneriert. Die sanften Klänge von Klangschalen und Koshis lösen Stress und schenken dir ein Gefühl von vollkommener Ruhe.</p>
+                <a href="sound-bath.html" class="offer-slider__btn btn-img">
+                  <img src="Buttons/Button_Yellow_1_Images_Ina.png" alt="">
+                  <span>SOUND BATH ANGEBOT</span>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -257,26 +364,60 @@
       </div>
     </section>
 
-    <section class="nuad-thai" id="nuad-thai">
-      <div class="nuad-thai__inner">
+    <section class="offer-slider offer-slider--nt" id="nuad-thai">
+      <div class="offer-slider__track" id="nt-track">
 
-        <h2 class="nuad-thai__title section-title">Nuad Thai<br>Massage</h2>
-
-        <div class="nuad-thai__row">
-          <p class="nuad-thai__text">Erlebe eine Art "Passives Yoga", das durch achtsame Druckpunkte und Dehnungen den Energiefluss anregt. Du darfst vollkommen loslassen und genießen, während ich deinen Körper individuell durch die Praxis führe.</p>
-          <div class="nuad-thai__blob-wrap">
-            <img src="images/Angebote_3_Image_Ina.png" alt="Nuad Thai Massage" class="nuad-thai__blob-img nuad-thai__blob-img--1">
+        <!-- Nuad Thai Slide 1: Text links, Bild RECHTS (linke Hälfte) -->
+        <div class="offer-slider__slide offer-slider__slide--1">
+          <div class="offer-slider__inner">
+            <div class="offer-slider__layout">
+              <div class="offer-slider__col offer-slider__col--text">
+                <h2 class="offer-slider__title section-title">Nuad Thai</h2>
+                <p class="offer-slider__text">Erlebe eine Art „Passives Yoga", das durch achtsame Druckpunkte und Dehnungen den Energiefluss anregt. Du darfst vollkommen loslassen und genießen, während ich deinen Körper individuell durch die Praxis führe.</p>
+                <a href="nuad-thai.html" class="offer-slider__btn btn-img">
+                  <img src="Buttons/Button_BlueBlack_Images_Ina.png" alt="">
+                  <span>NUAD ANGEBOT</span>
+                </a>
+              </div>
+              <div class="offer-slider__col offer-slider__col--image offer-slider__col--image-right">
+                <div class="offer-slider__image-wrap">
+                  <img src="images/Angebote_3_Image_Ina.png" alt="Nuad Thai Massage" class="offer-slider__image offer-slider__image--left">
+                </div>
+                <button type="button" class="offer-slider__nav-btn" id="nt-next" aria-label="Was dich erwartet">
+                  <span class="offer-slider__nav-text">WAS DICH ERWARTET?</span>
+                  <img src="Icons/PfeilLinks_blue.png" alt="" class="offer-slider__nav-arrow">
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="nuad-thai__cta">
-          <a href="nuad-thai.html" class="nuad-thai__btn btn-img">
-            <img src="Buttons/Button_BlueBlack_Images_Ina.png" alt="">
-            <span>NUAD-ANGEBOT</span>
-          </a>
-          <button type="button" class="nuad-thai__was-link modal__link" data-modal="nuad-thai-was">
-            WAS DICH ERWARTET <img src="Icons/PfeilLinks_blue.png" alt="" class="modal__link-arrow">
-          </button>
+        <!-- Nuad Thai Slide 2: Bild LINKS (rechte Hälfte), Text rechts -->
+        <div class="offer-slider__slide offer-slider__slide--2" aria-hidden="true">
+          <div class="offer-slider__inner">
+            <div class="offer-slider__layout">
+              <div class="offer-slider__col offer-slider__col--image offer-slider__col--image-left">
+                <div class="offer-slider__image-wrap">
+                  <img src="images/Angebote_3_Image_Ina.png" alt="Nuad Thai Massage" class="offer-slider__image offer-slider__image--right">
+                </div>
+                <button type="button" class="offer-slider__nav-btn" id="nt-prev" aria-label="Zurück">
+                  <span class="offer-slider__nav-text">ZURÜCK</span>
+                  <img src="Icons/PfeilLinks_blue.png" alt="" class="offer-slider__nav-arrow offer-slider__nav-arrow--flipped">
+                </button>
+              </div>
+              <div class="offer-slider__col offer-slider__col--text offer-slider__col--text-right">
+                <div class="offer-slider__title-wrap">
+                  <h2 class="offer-slider__title section-title">Nuad Thai</h2>
+                  <span class="offer-slider__subtitle offer-slider__subtitle--nt">mit Ina</span>
+                </div>
+                <p class="offer-slider__text">Du brauchst absolut nichts zu tun, außer dich vertrauensvoll in die Bewegung hineinzuentspannen. Ich arbeite achtsam, langsam und genau auf deinen Körper abgestimmt – so entsteht ein Raum für mentale Ruhe und körperliche Freiheit. Jede Einheit ist dabei so individuell wie du selbst.</p>
+                <a href="nuad-thai.html" class="offer-slider__btn btn-img">
+                  <img src="Buttons/Button_BlueBlack_Images_Ina.png" alt="">
+                  <span>NUAD ANGEBOT</span>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -391,46 +532,6 @@
     </div>
   </footer>
 
-  <!-- Yoga-Angebot Modal (Schritt 10) -->
-  <div class="modal" id="modal-yoga" role="dialog" aria-modal="true" aria-labelledby="modal-yoga-title" aria-hidden="true">
-    <div class="modal__backdrop" data-modal-close></div>
-    <div class="modal__container">
-      <button type="button" class="modal__close" aria-label="Schließen" data-modal-close>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <div class="modal__content">
-        <div class="modal__header-wrap">
-          <div class="modal__image-wrap">
-            <img src="images/Uebersicht_1_Image_Ina.png" alt="Yoga mit Ina" class="modal__image">
-          </div>
-          <h2 class="modal__title" id="modal-yoga-title"><span class="modal__title-main">Yoga</span> <span class="modal__title-sub">mit Ina</span></h2>
-        </div>
-        <div class="modal__body">
-          <p class="modal__text">Vinyasa Flow, Gentle Yoga, Pranayama, Meditation, Yoga nidra und Workshops – ruhige und dynamische Klassen für jeden. Hatha, Vinyasa, Yin und Einzelstunden nach Maß.</p>
-          <div class="modal__buttons">
-            <a href="#yoga-kurse" class="modal__btn btn-img">
-              <img src="Buttons/Button_Yellow_1_Images_Ina.png" alt="">
-              <span>Yoga-Kurse</span>
-            </a>
-            <a href="#events" class="modal__btn btn-img">
-              <img src="Buttons/Button_Yellow_1_Images_Ina.png" alt="">
-              <span>Special Events</span>
-            </a>
-            <a href="firmenyoga.html" class="modal__btn btn-img">
-              <img src="Buttons/Button_Yellow_1_Images_Ina.png" alt="">
-              <span>Firmenyoga</span>
-            </a>
-          </div>
-          <button type="button" class="modal__link" data-modal="yoga-was-dich-erwartet">
-            WAS DICH ERWARTET <img src="Icons/Pfeile_violet.png" alt="" class="modal__link-arrow">
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Event-Pop-ups (Schritt 17) -->
   <div class="modal" id="modal-event-1" role="dialog" aria-modal="true" aria-labelledby="modal-event-1-title" aria-hidden="true">
     <div class="modal__backdrop" data-modal-close></div>
@@ -534,38 +635,6 @@
     </div>
   </div>
 
-  <!-- Sound Bath Modal (Schritt 12) -->
-  <div class="modal" id="modal-sound-bath" role="dialog" aria-modal="true" aria-labelledby="modal-sound-bath-title" aria-hidden="true">
-    <div class="modal__backdrop" data-modal-close></div>
-    <div class="modal__container modal__container--sound-bath">
-      <button type="button" class="modal__close" aria-label="Schließen" data-modal-close>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <div class="modal__content">
-        <div class="modal__header-wrap">
-          <div class="modal__image-wrap">
-            <img src="images/Uebersicht_2_Image_Ina.png" alt="Sound Bath" class="modal__image">
-          </div>
-          <h2 class="modal__title" id="modal-sound-bath-title">Sound Bath</h2>
-        </div>
-        <div class="modal__body">
-          <p class="modal__text">Eine wohltuende Klangreise für Körper, Geist und Seele. Klangschalen, Gongs und Koshi-Klangspiele umhüllen dich mit sanften Schwingungen – sie bauen Stress ab, verbessern die Schlafqualität und ermöglichen tiefe Entspannung.</p>
-          <button type="button" class="modal__link" data-modal="sound-bath-was">
-            WAS DICH ERWARTET <img src="Icons/Pfeile_yellow.png" alt="" class="modal__link-arrow">
-          </button>
-          <div class="modal__buttons">
-            <a href="#sound-bath" class="modal__btn btn-img" data-modal-close>
-              <img src="Buttons/Button_Yellow_1_Images_Ina.png" alt="">
-              <span>SOUND BATH ANGEBOT</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Sound Bath – Was dich erwartet Modal -->
   <div class="modal" id="modal-sound-bath-was" role="dialog" aria-modal="true" aria-labelledby="modal-sound-bath-was-title" aria-hidden="true">
     <div class="modal__backdrop" data-modal-close></div>
@@ -588,38 +657,6 @@
             <img src="Buttons/Button_Yellow_1_Images_Ina.png" alt="">
             <span>SOUND BATH ANGEBOT</span>
           </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Nuad Thai Modal (Schritt 13) -->
-  <div class="modal" id="modal-nuad-thai" role="dialog" aria-modal="true" aria-labelledby="modal-nuad-thai-title" aria-hidden="true">
-    <div class="modal__backdrop" data-modal-close></div>
-    <div class="modal__container modal__container--nuad-thai">
-      <button type="button" class="modal__close" aria-label="Schließen" data-modal-close>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <div class="modal__content">
-        <div class="modal__header-wrap">
-          <div class="modal__image-wrap">
-            <img src="images/Uebersicht_3_Image_Ina.png" alt="Nuad Thai Massage" class="modal__image">
-          </div>
-          <h2 class="modal__title" id="modal-nuad-thai-title">Nuad Thai Massage</h2>
-        </div>
-        <div class="modal__body">
-          <p class="modal__text">Berührt und tiefenwirksam. Sanfte Dehnungen, Akupressur und Energiearbeit lösen Blockaden und fördern den Energiefluss – für tiefe Entspannung und ein neues Körpergefühl. Dauer: 75 Min. | Preis: € 90,–</p>
-          <button type="button" class="modal__link" data-modal="nuad-thai-was">
-            WAS DICH ERWARTET <img src="Icons/PfeilLinks_blue.png" alt="" class="modal__link-arrow">
-          </button>
-          <div class="modal__buttons">
-            <a href="#nuad-thai" class="modal__btn btn-img" data-modal-close>
-              <img src="Buttons/Button_BlueBlack_Images_Ina.png" alt="">
-              <span>NUAD THAI ANGEBOT</span>
-            </a>
-          </div>
         </div>
       </div>
     </div>
@@ -656,39 +693,6 @@
             <img src="Buttons/Button_BlueBlack_Images_Ina.png" alt="">
             <span>NUAD-ANGEBOT</span>
           </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Firmenyoga Modal -->
-  <div class="modal" id="modal-firmenyoga" role="dialog" aria-modal="true" aria-labelledby="modal-firmenyoga-title" aria-hidden="true">
-    <div class="modal__backdrop" data-modal-close></div>
-    <div class="modal__container modal__container--firmenyoga">
-      <button type="button" class="modal__close" aria-label="Schließen" data-modal-close>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <div class="modal__content">
-        <div class="modal__header-wrap">
-          <div class="modal__image-wrap">
-            <img src="images/Uebersicht_2_Image_Ina.png" alt="Firmenyoga mit Ina" class="modal__image">
-          </div>
-          <h2 class="modal__title" id="modal-firmenyoga-title"><span class="modal__title-main">Firmen</span><span class="modal__title-sub">yoga</span></h2>
-        </div>
-        <div class="modal__body">
-          <p class="modal__text">Für mehr Fokus und Energie im Team: maßgeschneiderte Yoga-Einheiten – vor Ort oder online. Regelmäßiges Yoga am Arbeitsplatz stärkt Gesundheit, Konzentration und Teamgeist gleichermaßen.</p>
-          <div class="modal__buttons">
-            <a href="firmenyoga.html" class="modal__btn btn-img">
-              <img src="Buttons/Button_Yellow_1_Images_Ina.png" alt="">
-              <span>MEHR ERFAHREN</span>
-            </a>
-            <a href="index.html#kontakt" class="modal__btn btn-img">
-              <img src="Buttons/Button_Yellow_1_Images_Ina.png" alt="">
-              <span>ANFRAGE STELLEN</span>
-            </a>
-          </div>
         </div>
       </div>
     </div>

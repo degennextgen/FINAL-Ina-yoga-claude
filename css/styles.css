@@ -30,6 +30,14 @@
   --color-off-white: #f7f8f6;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 30px;
+}
+
 body {
   font-family: var(--font-body);
   font-weight: 300; /* Montserrat Light */
@@ -364,13 +372,15 @@ body.nav-open {
   justify-content: center;
   text-decoration: none;
   font-weight: 300;
-  font-size: 0.875rem;
+  font-size: 1rem;
   text-transform: uppercase;
   color: #000;
   position: relative;
   border: none;
   background: none;
   cursor: pointer;
+  min-width: 220px;
+  min-height: 56px;
 }
 
 .hero__btn--script {
@@ -397,7 +407,7 @@ body.nav-open {
 .hero__btn span {
   position: relative;
   z-index: 1;
-  padding: 1rem 2rem;
+  padding: 1.25rem 2.5rem;
 }
 
 /* Hero: Tablet */
@@ -467,7 +477,7 @@ body.nav-open {
 .wavy-divider--top {
   position: relative;
   z-index: 10;
-  margin-top: -80px;
+  margin-top: -78px;
   margin-bottom: 0;
 }
 
@@ -534,6 +544,7 @@ body.nav-open {
   padding: 0;
   cursor: pointer;
   font: inherit;
+  width: 100%;
   animation: offers-card-wave 2.5s ease-in-out infinite;
   overflow: hidden;
 }
@@ -895,6 +906,414 @@ body.modal-open {
 }
 
 /* ============================================
+   Yoga Intro Section – 2-Slide-Slider
+   ============================================ */
+.yoga-intro {
+  background-color: var(--color-light-yellow);
+  overflow: hidden;
+  padding: 3rem 0 0;
+}
+
+/* Track: beide Slides nebeneinander */
+.yoga-intro__track {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.yoga-intro__slide {
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 0 1.5rem;
+}
+
+/* 2-Spalten-Grid für beide Slides */
+.yoga-intro__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
+/* Text-Spalte */
+.yoga-intro__col--text {
+  padding-right: 0.75rem;
+}
+
+/* Bild-Spalte */
+.yoga-intro__col--image {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Titel */
+.yoga-intro__title {
+  font-family: var(--font-script);
+  font-size: 6.75rem;
+  margin: 0 0 1rem;
+  line-height: 1;
+}
+
+/* Subtitle "mit Ina" */
+.yoga-intro__title-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.yoga-intro__subtitle {
+  font-family: var(--font-accent);
+  font-size: 1.4rem;
+  color: #9b8fb0;
+  font-weight: normal;
+}
+
+/* Text */
+.yoga-intro__text {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  margin: 0 0 1.5rem;
+}
+
+/* Buttons-Stack */
+.yoga-intro__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.yoga-intro__btn {
+  font-family: var(--font-accent);
+  min-height: 52px;
+}
+
+.yoga-intro__btn span {
+  font-size: 0.875rem;
+  padding: 1rem 1.5rem;
+}
+
+/* Bild: bis zum Rand */
+.yoga-intro__image-wrap {
+  width: calc(70% + 1.5rem);
+  overflow: hidden;
+}
+
+/* Slide 1: Bild rechtsbündig → rechter Rand */
+.yoga-intro__slide--1 .yoga-intro__col--image {
+  align-items: flex-end;
+}
+
+.yoga-intro__slide--1 .yoga-intro__image-wrap {
+  margin-right: -1.5rem;
+}
+
+/* Slide 2: Bild linksbündig → linker Rand */
+.yoga-intro__slide--2 .yoga-intro__col--image {
+  align-items: flex-start;
+}
+
+.yoga-intro__slide--2 .yoga-intro__col--text > .yoga-intro__btn {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.yoga-intro__slide--2 .yoga-intro__image-wrap {
+  margin-left: -1.5rem;
+}
+
+.yoga-intro__image {
+  display: block;
+  width: 200%;
+  max-width: none;
+  height: auto;
+}
+
+/* Slide 1: linke Hälfte des Bildes sichtbar */
+.yoga-intro__image--left {
+  transform: translateX(0);
+}
+
+/* Slide 2: rechte Hälfte des Bildes sichtbar */
+.yoga-intro__image--right {
+  transform: translateX(-50%);
+}
+
+/* Nav-Buttons (WAS DICH ERWARTET & ZURÜCK) */
+.yoga-intro__nav-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-align: center;
+}
+
+.yoga-intro__nav-text {
+  font-family: var(--font-accent);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: #000;
+}
+
+.yoga-intro__nav-arrow {
+  width: 52px;
+  height: auto;
+}
+
+/* ZURÜCK: Pfeil gespiegelt, Reihenfolge umgekehrt */
+.yoga-intro__nav-btn--back {
+  flex-direction: column-reverse;
+}
+
+.yoga-intro__nav-arrow--flipped {
+  transform: scaleX(-1);
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .yoga-intro {
+    padding: 4rem 0 0;
+  }
+
+  .yoga-intro__slide {
+    padding: 0 2rem;
+  }
+
+  .yoga-intro__image-wrap {
+    width: calc(70% + 2rem);
+  }
+
+  .yoga-intro__slide--1 .yoga-intro__image-wrap {
+    margin-right: -2rem;
+  }
+
+  .yoga-intro__slide--2 .yoga-intro__image-wrap {
+    margin-left: -2rem;
+  }
+
+  .yoga-intro__title {
+    font-size: 9rem;
+  }
+
+  .yoga-intro__text {
+    font-size: 1rem;
+  }
+
+  .yoga-intro__btn span {
+    font-size: 1rem;
+    padding: 1.25rem 2rem;
+  }
+
+  .yoga-intro__nav-text {
+    font-size: 1rem;
+  }
+
+  .yoga-intro__nav-arrow {
+    width: 68px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .yoga-intro {
+    padding: 5rem 0 0;
+  }
+
+  .yoga-intro__slide {
+    padding: 0 2rem;
+  }
+
+  .yoga-intro__layout {
+    align-items: center;
+  }
+
+  .yoga-intro__title {
+    font-size: 12rem;
+  }
+
+  .yoga-intro__image-wrap {
+    width: calc(35% + 2rem);
+  }
+}
+
+/* ============================================
+   Shared Offer Slider (Sound Bath + Nuad Thai)
+   ============================================ */
+.offer-slider {
+  overflow: hidden;
+  padding: 3rem 0 0;
+}
+
+.offer-slider--sb { background-color: var(--color-lavender); }
+.offer-slider--nt { background-color: var(--color-light-coral); }
+
+.offer-slider__track {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.offer-slider__slide {
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 0 1.5rem;
+}
+
+.offer-slider__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
+.offer-slider__col--text {
+  padding-right: 0.75rem;
+}
+
+.offer-slider__col--text-right {
+  padding-right: 0;
+  padding-left: 0.75rem;
+}
+
+.offer-slider__col--image {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.offer-slider__col--image-right {
+  align-items: flex-end;
+}
+
+.offer-slider__col--image-right .offer-slider__image-wrap {
+  margin-right: -1.5rem;
+}
+
+.offer-slider__col--image-left {
+  align-items: flex-start;
+}
+
+.offer-slider__col--image-left .offer-slider__image-wrap {
+  margin-left: -1.5rem;
+}
+
+.offer-slider__image-wrap {
+  width: calc(70% + 1.5rem);
+  overflow: hidden;
+}
+
+.offer-slider__image {
+  display: block;
+  width: 200%;
+  max-width: none;
+  height: auto;
+}
+
+.offer-slider__image--left  { transform: translateX(0); }
+.offer-slider__image--right { transform: translateX(-50%); }
+
+.offer-slider__title {
+  font-family: var(--font-script);
+  font-size: 4rem;
+  margin: 0 0 1rem;
+  line-height: 1;
+}
+
+.offer-slider__title-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.offer-slider__subtitle {
+  font-family: var(--font-accent);
+  font-size: 1.4rem;
+  font-weight: normal;
+}
+
+.offer-slider__subtitle--sb { color: #6a5a7a; }
+.offer-slider__subtitle--nt { color: #5a6a7a; }
+
+.offer-slider__text {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  margin: 0 0 1.5rem;
+}
+
+.offer-slider__btn {
+  font-family: var(--font-accent);
+  min-height: 52px;
+}
+
+.offer-slider__btn span {
+  font-size: 0.875rem;
+  padding: 1rem 1.5rem;
+}
+
+.offer-slider__nav-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-align: center;
+}
+
+.offer-slider__nav-text {
+  font-family: var(--font-accent);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: #000;
+}
+
+.offer-slider__nav-arrow {
+  width: 52px;
+  height: auto;
+}
+
+.offer-slider__nav-arrow--flipped {
+  transform: scaleX(-1);
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .offer-slider { padding: 4rem 0 0; }
+  .offer-slider__slide { padding: 0 2rem; }
+  .offer-slider__image-wrap { width: calc(70% + 2rem); }
+  .offer-slider__col--image-right .offer-slider__image-wrap { margin-right: -2rem; }
+  .offer-slider__col--image-left .offer-slider__image-wrap { margin-left: -2rem; }
+  .offer-slider__title { font-size: 5.5rem; }
+  .offer-slider__text { font-size: 1rem; }
+  .offer-slider__btn span { font-size: 1rem; padding: 1.25rem 2rem; }
+  .offer-slider__nav-arrow { width: 68px; }
+  .offer-slider__nav-text { font-size: 1rem; }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .offer-slider { padding: 5rem 0 0; }
+  .offer-slider__slide { padding: 0 2rem; }
+  .offer-slider__layout { align-items: center; }
+  .offer-slider__title { font-size: 7rem; }
+  .offer-slider__image-wrap { width: calc(35% + 2rem); }
+}
+
+/* ============================================
    Yoga-Kurse-Sektion (Schritt 14)
    Mobile-first + responsive
    ============================================ */
@@ -931,7 +1350,7 @@ body.modal-open {
 
 .yoga-courses__title {
   font-family: var(--font-script);
-  font-size: 4rem;
+  font-size: 5rem;
   color: #000;
   margin: 0;
   text-transform: lowercase;
@@ -960,7 +1379,7 @@ body.modal-open {
   justify-content: center;
   text-decoration: none;
   font-family: var(--font-accent);
-  font-size: 0.875rem;
+  font-size: 1rem;
   text-transform: uppercase;
   color: #000;
   position: relative;
@@ -1141,7 +1560,7 @@ body.modal-open {
   }
 
   .yoga-courses__title {
-    font-size: 4.5rem;
+    font-size: 5.5rem;
   }
 
   .yoga-courses__text {
@@ -1174,7 +1593,7 @@ body.modal-open {
   }
 
   .yoga-courses__title {
-    font-size: 5rem;
+    font-size: 6.25rem;
   }
 
   .yoga-courses__info-link,
@@ -1189,7 +1608,7 @@ body.modal-open {
    Desktop: Slideshow 1,5s
    ============================================ */
 .events {
-  background-color: var(--color-light-green);
+  background-color: #c8dfb6;
   padding: 4rem 1.5rem 0;
   overflow-x: visible;
 }
@@ -1234,6 +1653,10 @@ body.modal-open {
 
 .events__card-body {
   padding: 1.25rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .events__card-title {
@@ -1271,7 +1694,7 @@ body.modal-open {
   justify-content: center;
   text-decoration: none;
   font-family: var(--font-accent);
-  font-size: 0.875rem;
+  font-size: 1rem;
   text-transform: uppercase;
   color: #000;
   position: relative;
@@ -1279,6 +1702,8 @@ body.modal-open {
   background: none;
   cursor: pointer;
   padding: 0;
+  min-width: 180px;
+  min-height: 52px;
 }
 
 .events__card-btn img {
@@ -1293,7 +1718,7 @@ body.modal-open {
 .events__card-btn span {
   position: relative;
   z-index: 1;
-  padding: 0.75rem 1.5rem;
+  padding: 1rem 2rem;
 }
 
 /* Wavy Divider Events */
@@ -1423,7 +1848,7 @@ body.modal-open {
 
 .sound-bath__row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.2fr 0.8fr;
   gap: 1rem;
   align-items: center;
   margin-bottom: 1.5rem;
@@ -1520,6 +1945,7 @@ body.modal-open {
   justify-content: center;
   text-decoration: none;
   font-family: var(--font-accent);
+  white-space: nowrap;
   font-size: 0.875rem;
   text-transform: uppercase;
   color: #000;
@@ -1592,11 +2018,12 @@ body.modal-open {
 
 .nuad-thai__title {
   font-family: var(--font-script);
-  font-size: 7rem;
+  font-size: 5rem;
   color: #000;
   text-align: left;
   line-height: 1.05;
   margin: 0 0 1.5rem;
+  white-space: nowrap;
 }
 
 .nuad-thai__row {
@@ -1806,7 +2233,7 @@ body.modal-open {
     max-width: 700px;
   }
   .nuad-thai__title {
-    font-size: 8rem;
+    font-size: 6rem;
   }
   .nuad-thai__mit-ina-name {
     font-size: 3.5rem;
@@ -1824,7 +2251,7 @@ body.modal-open {
     max-width: 860px;
   }
   .nuad-thai__title {
-    font-size: 9rem;
+    font-size: 6rem;
   }
 }
 
@@ -1961,7 +2388,9 @@ body.modal-open {
   background: var(--color-dark-grey-teal);
 }
 
-.wavy-divider--blue-dark {
+.wavy-divider--blue-dark,
+.wavy-divider--lavender-dark,
+.wavy-divider--yellow-dark {
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-bottom: -3px;
@@ -2107,7 +2536,7 @@ body.modal-open {
   justify-content: center;
   text-decoration: none;
   font-family: var(--font-accent);
-  font-size: 0.875rem;
+  font-size: 1rem;
   text-transform: uppercase;
   color: #000;
   position: relative;

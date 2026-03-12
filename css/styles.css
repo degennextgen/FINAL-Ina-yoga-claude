@@ -490,6 +490,10 @@ body.nav-open {
   stroke: var(--color-lavender);
 }
 
+.wavy-divider--yellow .wavy-divider__line {
+  stroke: #e0d8eb;
+}
+
 .wavy-divider__line-lavender {
   stroke: var(--color-lavender);
 }
@@ -1740,7 +1744,7 @@ body.modal-open {
 
 /* Event Modal */
 .modal__container--event {
-  background: var(--color-light-green);
+  background: #c8dfb6;
 }
 
 .modal__container--event .modal__content {

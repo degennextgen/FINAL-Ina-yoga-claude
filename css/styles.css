@@ -1276,6 +1276,10 @@ body.modal-open {
   text-align: center;
 }
 
+#sb-next {
+  margin-left: -10px;
+}
+
 .offer-slider__nav-text {
   font-family: var(--font-accent);
   font-size: 0.8rem;

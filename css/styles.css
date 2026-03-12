@@ -491,7 +491,7 @@ body.nav-open {
 }
 
 .wavy-divider--yellow .wavy-divider__line {
-  stroke: #fff;
+  stroke: var(--color-lavender);
 }
 
 .wavy-divider__line-lavender {

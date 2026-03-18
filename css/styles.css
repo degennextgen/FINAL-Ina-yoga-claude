@@ -945,6 +945,15 @@ body.modal-open {
   padding-right: 0.75rem;
 }
 
+/* Slide 1: Text rechtsbündig */
+.yoga-intro__slide--1 .yoga-intro__col--text {
+  text-align: right;
+}
+
+.yoga-intro__slide--1 .yoga-intro__buttons {
+  align-items: flex-end;
+}
+
 /* Bild-Spalte */
 .yoga-intro__col--image {
   display: flex;
@@ -995,6 +1004,7 @@ body.modal-open {
 .yoga-intro__btn {
   font-family: var(--font-accent);
   min-height: 52px;
+  min-width: 220px;
 }
 
 .yoga-intro__btn span {

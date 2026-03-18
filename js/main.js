@@ -148,11 +148,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 /**
+ * Swipe-Hilfsfunktion – erkennt horizontales Wischen auf Touch-Geräten
+ * @param {Element} el       – das Element, auf dem Swipes erkannt werden
+ * @param {Function} onLeft  – Callback bei Wisch nach links  (→ weiter)
+ * @param {Function} onRight – Callback bei Wisch nach rechts (→ zurück)
+ */
+function addSwipe(el, onLeft, onRight) {
+  if (!el) return;
+  var startX = 0;
+  var startY = 0;
+  el.addEventListener('touchstart', function (e) {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+  }, { passive: true });
+  el.addEventListener('touchend', function (e) {
+    var dx = e.changedTouches[0].clientX - startX;
+    var dy = e.changedTouches[0].clientY - startY;
+    // Nur auslösen wenn horizontale Bewegung dominiert und Mindestweite 50px
+    if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy)) return;
+    if (dx < 0) onLeft();
+    else onRight();
+  }, { passive: true });
+}
+
+/**
  * Testimonials-Slider (Schritt 19)
- * Auto-wechsel alle 4 Sekunden + Pfeil-Navigation
+ * Auto-wechsel alle 4 Sekunden + Pfeil-Navigation + Swipe
  */
 document.addEventListener('DOMContentLoaded', function () {
   var track = document.querySelector('.testimonials__track');
+  var trackWrap = document.querySelector('.testimonials__track-wrap');
   var items = document.querySelectorAll('.testimonials__item');
   var dots = document.querySelectorAll('.testimonials__dot');
   var prevBtn = document.querySelector('.testimonials__nav--prev');
@@ -204,6 +229,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  // Swipe-Unterstützung
+  addSwipe(trackWrap,
+    function () { goTo(current + 1); restart(); },
+    function () { goTo(current - 1); restart(); }
+  );
+
   goTo(0);
   start();
 });
@@ -228,6 +259,13 @@ function initOfferSlider(trackId, nextId, prevId, sectionId, reversed) {
     }
     nextBtn.addEventListener('click', function () { show(true); });
     prevBtn.addEventListener('click', function () { show(false); });
+
+    // Swipe-Unterstützung: Links = weiter, Rechts = zurück
+    var section = document.getElementById(sectionId);
+    addSwipe(section,
+      function () { show(true); },
+      function () { show(false); }
+    );
   });
 }
 initOfferSlider('sb-track', 'sb-next', 'sb-prev', 'sound-bath', true);
@@ -250,10 +288,36 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   nextBtn.addEventListener('click', function () {
-    showSlide(1);
+    if (window.matchMedia('(min-width: 1024px)').matches) {
+      // Desktop: Modal öffnen statt zu Slide 2 zu wechseln
+      var yogaModal = document.getElementById('modal-yoga-was-dich-erwartet');
+      if (yogaModal) {
+        document.querySelectorAll('.modal').forEach(function (m) {
+          m.classList.remove('modal--open');
+          m.setAttribute('aria-hidden', 'true');
+        });
+        yogaModal.classList.add('modal--open');
+        yogaModal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+        var burgerEl = document.querySelector('.header__burger');
+        if (burgerEl) {
+          burgerEl.classList.add('header__burger--open');
+          burgerEl.setAttribute('aria-label', 'Menü schließen');
+        }
+      }
+    } else {
+      showSlide(1);
+    }
   });
 
   prevBtn.addEventListener('click', function () {
     showSlide(0);
   });
+
+  // Swipe-Unterstützung: Links = weiter (Slide 2 / Modal), Rechts = zurück
+  var yogaSection = document.querySelector('.yoga-intro');
+  addSwipe(yogaSection,
+    function () { nextBtn.click(); },
+    function () { showSlide(0); }
+  );
 });

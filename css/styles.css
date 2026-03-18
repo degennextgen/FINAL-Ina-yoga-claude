@@ -1164,8 +1164,33 @@ body.modal-open {
     font-size: 19.2rem;
   }
 
+  .yoga-intro__buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .yoga-intro__slide--1 .yoga-intro__buttons {
+    justify-content: flex-end;
+  }
+
   .yoga-intro__image-wrap {
     width: calc(35% + 2rem);
+  }
+
+  /* Vollständiges Bild auf Desktop (Slide 1) */
+  .yoga-intro__slide--1 .yoga-intro__image-wrap {
+    width: calc(100% + 2rem);
+    margin-right: -2rem;
+  }
+
+  .yoga-intro__slide--1 .yoga-intro__image {
+    width: 100%;
+    transform: none;
+  }
+
+  /* Slide 2 auf Desktop ausblenden – Modal wird stattdessen geöffnet */
+  .yoga-intro__slide--2 {
+    display: none;
   }
 }
 
@@ -1485,7 +1510,7 @@ body.modal-open {
 
 .yoga-courses__card-title {
   font-family: var(--font-script);
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: #000;
   margin: 0 0 0.75rem;
 }
@@ -1603,7 +1628,7 @@ body.modal-open {
   }
 
   .yoga-courses__card-title {
-    font-size: 2.25rem;
+    font-size: 2.75rem;
   }
 
   .yoga-courses__info-link,

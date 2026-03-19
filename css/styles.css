@@ -521,7 +521,7 @@ body.nav-open {
 
 .offers-overview__title {
   font-family: var(--font-script);
-  font-size: 8.65rem;
+  font-size: 6rem;
   color: #000;
   text-align: center;
   margin: 0 0 2rem;
@@ -594,7 +594,7 @@ body.nav-open {
   }
 
   .offers-overview__title {
-    font-size: 10rem;
+    font-size: 7rem;
     margin-bottom: 2.5rem;
   }
 
@@ -618,7 +618,7 @@ body.nav-open {
   }
 
   .offers-overview__title {
-    font-size: 12rem;
+    font-size: 8.5rem;
     margin-bottom: 3rem;
   }
 
@@ -894,7 +894,7 @@ body.nav-open {
   }
 
   .modal__image-wrap {
-    max-width: 280px;
+    display: none;
   }
 
   .modal__body {
@@ -951,7 +951,7 @@ body.modal-open {
 }
 
 .yoga-intro__slide--1 .yoga-intro__buttons {
-  align-items: flex-end;
+  align-items: center;
 }
 
 /* Bild-Spalte */
@@ -999,6 +999,7 @@ body.modal-open {
 .yoga-intro__buttons {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 0.625rem;
 }
 
@@ -1181,16 +1182,16 @@ body.modal-open {
   }
 
   .yoga-intro__slide--1 .yoga-intro__buttons {
-    justify-content: flex-end;
+    justify-content: center;
   }
 
   .yoga-intro__image-wrap {
     width: calc(35% + 2rem);
   }
 
-  /* Vollständiges Bild auf Desktop (Slide 1) */
+  /* Vollständiges Bild auf Desktop (Slide 1) – 30 % kleiner */
   .yoga-intro__slide--1 .yoga-intro__image-wrap {
-    width: calc(100% + 2rem);
+    width: calc(70% + 2rem);
     margin-right: -2rem;
   }
 
@@ -1342,7 +1343,7 @@ body.modal-open {
 
 .offer-slider__nav-text {
   font-family: var(--font-accent);
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   letter-spacing: 0.08em;
   color: #000;
 }
@@ -1367,7 +1368,7 @@ body.modal-open {
   .offer-slider__text { font-size: 1rem; }
   .offer-slider__btn span { font-size: 1rem; padding: 1.25rem 2rem; }
   .offer-slider__nav-arrow { width: 68px; }
-  .offer-slider__nav-text { font-size: 1rem; }
+  .offer-slider__nav-text { font-size: 1.5rem; }
 }
 
 /* Desktop */
@@ -1419,7 +1420,6 @@ body.modal-open {
   font-size: 5rem;
   color: #000;
   margin: 0;
-  text-transform: lowercase;
   flex-shrink: 0;
 }
 
@@ -1521,7 +1521,7 @@ body.modal-open {
 
 .yoga-courses__card-title {
   font-family: var(--font-script);
-  font-size: 2.5rem;
+  font-size: 3.25rem;
   color: #000;
   margin: 0 0 0.75rem;
 }
@@ -1548,13 +1548,27 @@ body.modal-open {
   gap: 0.25rem;
 }
 
-.yoga-courses__card-schedule,
+.yoga-courses__card-schedule {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.9375rem;
+  color: #000;
+  margin: 0 0 0.25rem;
+}
+
 .yoga-courses__card-location {
   font-family: var(--font-body);
   font-weight: 300;
   font-size: 0.9375rem;
   color: #000;
   margin: 0 0 0.25rem;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+}
+
+.yoga-courses__card-location:hover {
+  color: #6b5b7a;
 }
 
 .yoga-courses__card-note {
@@ -1602,7 +1616,7 @@ body.modal-open {
 
 .yoga-courses__closing {
   font-family: var(--font-script);
-  font-size: 4rem;
+  font-size: 2.8rem;
   color: #000;
   margin: 0 0 1.5rem;
 }
@@ -1639,12 +1653,12 @@ body.modal-open {
   }
 
   .yoga-courses__card-title {
-    font-size: 2.75rem;
+    font-size: 3.58rem;
   }
 
   .yoga-courses__info-link,
   .yoga-courses__closing {
-    font-size: 4.5rem;
+    font-size: 3.2rem;
   }
 }
 
@@ -1664,7 +1678,7 @@ body.modal-open {
 
   .yoga-courses__info-link,
   .yoga-courses__closing {
-    font-size: 5rem;
+    font-size: 3.5rem;
   }
 }
 
@@ -1690,6 +1704,7 @@ body.modal-open {
   color: #000;
   text-align: center;
   margin: 0 0 2rem;
+  text-transform: none;
 }
 
 .events__grid {
@@ -1827,7 +1842,7 @@ body.modal-open {
   text-decoration: none;
   font-family: var(--font-accent);
   font-weight: 300;
-  font-size: 0.875rem;
+  font-size: 1.0625rem;
   text-transform: uppercase;
   color: #000;
   position: relative;
@@ -1848,7 +1863,7 @@ body.modal-open {
 .events-modal__reserve span {
   position: relative;
   z-index: 1;
-  padding: 1rem 2rem;
+  padding: 1.25rem 2.5rem;
 }
 
 /* Events: Tablet */
@@ -2604,7 +2619,7 @@ body.modal-open {
   text-decoration: none;
   font-family: var(--font-accent);
   font-size: 1rem;
-  text-transform: uppercase;
+  text-transform: none;
   color: #000;
   position: relative;
   border: none;

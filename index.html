@@ -254,69 +254,8 @@
     <section class="events" id="events">
       <div class="events__inner">
         <h2 class="events__title section-title">Events</h2>
-        <div class="events__grid">
-            <article class="events__card" data-event="1">
-              <div class="events__card-image-wrap">
-                <img src="images/Fruehstueck_Image_Ina.png" alt="Yoga & Frühstück">
-              </div>
-              <div class="events__card-body">
-                <h3 class="events__card-title">Yoga & Frühstück</h3>
-                <p class="events__card-meta">21.02.2026</p>
-                <p class="events__card-meta">08.00 – 10.00</p>
-                <p class="events__card-meta">Hois'n Wirt</p>
-                <p class="events__card-meta">Gmunden</p>
-                <button type="button" class="events__card-btn btn-img" data-modal="event-1">
-                  <img src="Buttons/Button_Violet_Images_Ina.png" alt="">
-                  <span>MEHR DAZU</span>
-                </button>
-              </div>
-            </article>
-            <article class="events__card" data-event="2">
-              <div class="events__card-image-wrap">
-                <img src="images/HeroUeberMich_Image_Ina_Desktop.png" alt="Yoga & Wellness">
-              </div>
-              <div class="events__card-body">
-                <h3 class="events__card-title">Yoga & Wellness</h3>
-                <p class="events__card-meta">20.02.2026</p>
-                <p class="events__card-meta">14.00 – 21.15</p>
-                <p class="events__card-meta">Hois'n Wirt</p>
-                <p class="events__card-meta">Gmunden</p>
-                <button type="button" class="events__card-btn btn-img" data-modal="event-2">
-                  <img src="Buttons/Button_Violet_Images_Ina.png" alt="">
-                  <span>MEHR DAZU</span>
-                </button>
-              </div>
-            </article>
-            <article class="events__card" data-event="3">
-              <div class="events__card-image-wrap">
-                <img src="images/Retreat_Image_Ina.png" alt="One Night Retreat">
-              </div>
-              <div class="events__card-body">
-                <h3 class="events__card-title">One Night Retreat</h3>
-                <p class="events__card-meta">20 – 21.02.2026</p>
-                <p class="events__card-meta">1 Übernachtung im DZ, Frühstück, 2 Yoga-Einheiten, Zugang zum Wellnessbereich</p>
-                <p class="events__card-meta">Hois'n Wirt</p>
-                <p class="events__card-meta">Gmunden</p>
-                <button type="button" class="events__card-btn btn-img" data-modal="event-3">
-                  <img src="Buttons/Button_Violet_Images_Ina.png" alt="">
-                  <span>MEHR DAZU</span>
-                </button>
-              </div>
-            </article>
-            <article class="events__card" data-event="4">
-              <div class="events__card-image-wrap">
-                <img src="images/Sound Bath card.png" alt="Sound Bath">
-              </div>
-              <div class="events__card-body">
-                <h3 class="events__card-title">Sound Bath</h3>
-                <p class="events__card-meta">Termin auf Anfrage</p>
-                <p class="events__card-meta">Klangreise mit Klangschalen und Gongs</p>
-                <button type="button" class="events__card-btn btn-img" data-modal="event-4">
-                  <img src="Buttons/Button_Violet_Images_Ina.png" alt="">
-                  <span>MEHR DAZU</span>
-                </button>
-              </div>
-            </article>
+        <div class="events__grid" id="events-grid-root" aria-live="polite">
+          <!-- Events werden per js/events.js aus api/events.php geladen -->
         </div>
       </div>
       <div class="wavy-divider wavy-divider--green-lavender" aria-hidden="true">
@@ -340,7 +279,7 @@
                 <p class="offer-slider__text">Ich schaffe für dich einen Raum, in dem du vom Tun ins reine Sein eintauchen und den Alltag hinter dir lassen darfst. Dich erwartet eine achtsam geführte Klangreise, die dich tief entspannt und geerdet zurück in deine Mitte führt.</p>
                 <a href="#kontakt" class="offer-slider__btn btn-img">
                   <img src="Buttons/Button_Yellow_1_Images_Ina.png" alt="">
-                  <span>SOFT TOUCH ANGEBOT</span>
+                  <span>SOFT TOUCH BUCHEN</span>
                 </a>
               </div>
               <div class="offer-slider__col offer-slider__col--image offer-slider__col--image-right">
@@ -372,9 +311,16 @@
               <div class="offer-slider__col offer-slider__col--text offer-slider__col--text-right">
                 <h2 class="offer-slider__title section-title">Bodywork: Soft Touch</h2>
                 <p class="offer-slider__text">Genieße eine Reise durch Schwingung und Stille, die dein gesamtes System tief regeneriert. Die sanften Klänge von Klangschalen und Koshis lösen Stress und schenken dir ein Gefühl von vollkommener Ruhe.</p>
+                <p class="offer-slider__text">Preistabelle:
+                  <ul>
+                    <li>50 min: € 55</li>
+                    <li>70 min: € 75</li>
+                    <li>90 min: € 95</li>
+                  </ul>
+                </p>
                 <a href="#kontakt" class="offer-slider__btn btn-img">
                   <img src="Buttons/Button_Yellow_1_Images_Ina.png" alt="">
-                  <span>SOFT TOUCH ANGEBOT</span>
+                  <span>SOFT TOUCH BUCHEN</span>
                 </a>
               </div>
             </div>
@@ -399,9 +345,16 @@
               <div class="offer-slider__col offer-slider__col--text">
                 <h2 class="offer-slider__title section-title">Bodywork: Nuad Thai</h2>
                 <p class="offer-slider__text">Erlebe eine Art „Passives Yoga", das durch achtsame Druckpunkte und Dehnungen den Energiefluss anregt. Du darfst vollkommen loslassen und genießen, während ich deinen Körper individuell durch die Praxis führe.</p>
+                <p class="offer-slider__text">Preistabelle (je Einheit):
+                  <ul>
+                    <li>50 min: € 55</li>
+                    <li>70 min: € 75</li>
+                    <li>90 min: € 95</li>
+                  </ul>
+                </p>
                 <a href="#kontakt" class="offer-slider__btn btn-img">
                   <img src="Buttons/Button_BlueBlack_Images_Ina.png" alt="">
-                  <span>NUAD ANGEBOT</span>
+                  <span>NUAD BUCHEN</span>
                 </a>
               </div>
               <div class="offer-slider__col offer-slider__col--image offer-slider__col--image-right">
@@ -438,7 +391,7 @@
                 <p class="offer-slider__text">Du brauchst absolut nichts zu tun, außer dich vertrauensvoll in die Bewegung hineinzuentspannen. Ich arbeite achtsam, langsam und genau auf deinen Körper abgestimmt – so entsteht ein Raum für mentale Ruhe und körperliche Freiheit. Jede Einheit ist dabei so individuell wie du selbst.</p>
                 <a href="#kontakt" class="offer-slider__btn btn-img">
                   <img src="Buttons/Button_BlueBlack_Images_Ina.png" alt="">
-                  <span>NUAD ANGEBOT</span>
+                  <span>NUAD BUCHEN</span>
                 </a>
               </div>
             </div>
@@ -558,8 +511,8 @@
     </div>
   </footer>
 
-  <!-- Event-Pop-ups (Schritt 17) -->
-  <div class="modal" id="modal-event-1" role="dialog" aria-modal="true" aria-labelledby="modal-event-1-title" aria-hidden="true">
+  <!-- Event-Modal (Inhalt aus js/events.js / api/events.php) -->
+  <div class="modal" id="modal-event-detail" role="dialog" aria-modal="true" aria-labelledby="modal-event-detail-title" aria-hidden="true">
     <div class="modal__backdrop" data-modal-close></div>
     <div class="modal__container modal__container--event">
       <button type="button" class="modal__close" aria-label="Schließen" data-modal-close>
@@ -569,89 +522,14 @@
       </button>
       <div class="modal__content">
         <div class="modal__image-wrap modal__image-wrap--event">
-          <img src="images/Fruehstueck_Image_Ina.png" alt="Yoga & Frühstück" class="modal__image">
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="" class="modal__image" width="16" height="10">
         </div>
         <div class="modal__body">
-          <h2 class="modal__title" id="modal-event-1-title">Yoga & Frühstück</h2>
-          <p class="modal__text">Starte deinen Tag mit Yoga und einem gemeinsamen Brunch in entspannter Atmosphäre.</p>
-          <p class="modal__text modal__text--meta">21.02.2026 · 08.00 – 10.00 · Hois'n Wirt, Gmunden</p>
+          <h2 class="modal__title" id="modal-event-detail-title"></h2>
+          <div id="modal-event-detail-desc"></div>
+          <p class="modal__text modal__text--meta" id="modal-event-detail-meta"></p>
           <a href="#kontakt" class="modal__btn btn-img events-modal__reserve">
             <img src="Buttons/Button_Violet_Images_Ina.png" alt="">
-            <span>RESERVIEREN</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal" id="modal-event-2" role="dialog" aria-modal="true" aria-labelledby="modal-event-2-title" aria-hidden="true">
-    <div class="modal__backdrop" data-modal-close></div>
-    <div class="modal__container modal__container--event">
-      <button type="button" class="modal__close" aria-label="Schließen" data-modal-close>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <div class="modal__content">
-        <div class="modal__image-wrap modal__image-wrap--event">
-          <img src="images/HeroUeberMich_Image_Ina_Desktop.png" alt="Yoga & Wellness" class="modal__image">
-        </div>
-        <div class="modal__body">
-          <h2 class="modal__title" id="modal-event-2-title">Yoga & Wellness</h2>
-          <p class="modal__text">Innere Harmonie und Tiefenentspannung – lass dich von Klangschalen und Gongs in eine wohltuende Klangreise entführen.</p>
-          <p class="modal__text modal__text--meta">20.02.2026 · 14.00 – 21.15 · Hois'n Wirt, Gmunden</p>
-          <a href="#kontakt" class="modal__btn btn-img events-modal__reserve">
-            <img src="Buttons/Button_Violet_Images_Ina.png" alt="">
-            <span>RESERVIEREN</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal" id="modal-event-3" role="dialog" aria-modal="true" aria-labelledby="modal-event-3-title" aria-hidden="true">
-    <div class="modal__backdrop" data-modal-close></div>
-    <div class="modal__container modal__container--event">
-      <button type="button" class="modal__close" aria-label="Schließen" data-modal-close>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <div class="modal__content">
-        <div class="modal__image-wrap modal__image-wrap--event">
-          <img src="images/Retreat_Image_Ina.png" alt="One Night Retreat" class="modal__image">
-        </div>
-        <div class="modal__body">
-          <h2 class="modal__title" id="modal-event-3-title">One Night Retreat</h2>
-          <p class="modal__text">1 Übernachtung im DZ, Frühstück, 2 Yoga-Einheiten, Zugang zum Wellnessbereich – eine Nacht voller Yoga, Klang und Entspannung.</p>
-          <p class="modal__text modal__text--meta">20 – 21.02.2026 · Hois'n Wirt, Gmunden</p>
-          <a href="#kontakt" class="modal__btn btn-img events-modal__reserve">
-            <img src="Buttons/Button_Violet_Images_Ina.png" alt="">
-            <span>RESERVIEREN</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal" id="modal-event-4" role="dialog" aria-modal="true" aria-labelledby="modal-event-4-title" aria-hidden="true">
-    <div class="modal__backdrop" data-modal-close></div>
-    <div class="modal__container modal__container--event">
-      <button type="button" class="modal__close" aria-label="Schließen" data-modal-close>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <div class="modal__content">
-        <div class="modal__image-wrap modal__image-wrap--event">
-          <img src="images/Angebote_2_Image_Ina.png" alt="Sound Bath" class="modal__image">
-        </div>
-        <div class="modal__body">
-          <h2 class="modal__title" id="modal-event-4-title">Sound Bath</h2>
-          <p class="modal__text">Genieße eine Reise durch Schwingung und Stille, die dein gesamtes System tief regeneriert. Die sanften Klänge von Klangschalen und Koshis lösen Stress und schenken dir ein Gefühl von vollkommener Ruhe.</p>
-          <p class="modal__text modal__text--meta">Termin auf Anfrage · Hois'n Wirt, Gmunden</p>
-          <a href="#kontakt" class="modal__btn btn-img events-modal__reserve">
-            <img src="Buttons/Button_Yellow_1_Images_Ina.png" alt="">
             <span>RESERVIEREN</span>
           </a>
         </div>
@@ -706,7 +584,7 @@
           <p class="modal__text">Genieße eine Reise durch Schwingung und Stille, die dein gesamtes System tief regeneriert. Die sanften Klänge von Klangschalen und Koshis lösen Stress und schenken dir ein Gefühl von vollkommener Ruhe.</p>
           <a href="#kontakt" class="modal__btn btn-img" data-modal-close>
             <img src="Buttons/Button_Yellow_1_Images_Ina.png" alt="">
-            <span>SOFT TOUCH ANGEBOT</span>
+            <span>SOFT TOUCH BUCHEN</span>
           </a>
         </div>
       </div>
@@ -750,5 +628,6 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script src="js/events.js"></script>
 </body>
 </html>

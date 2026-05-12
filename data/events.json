@@ -1,0 +1,64 @@
+{
+    "events": [
+        {
+            "id": "evt_seed_fruehstueck",
+            "title": "Yoga & Frühstück",
+            "date_start": "2026-09-21",
+            "date_end": "",
+            "time": "08.00 – 10.00",
+            "location": "Hois'n Wirt\nGmunden",
+            "image": "images/Fruehstueck_Image_Ina.png",
+            "excerpt": "",
+            "body": "Starte deinen Tag mit Yoga und einem gemeinsamen Brunch in entspannter Atmosphäre.",
+            "updated_at": "2026-05-12T00:00:00+02:00"
+        },
+        {
+            "id": "evt_seed_wellness",
+            "title": "Yoga & Wellness",
+            "date_start": "2026-09-12",
+            "date_end": "",
+            "time": "14.00 – 21.15",
+            "location": "Hois'n Wirt\nGmunden",
+            "image": "images/HeroUeberMich_Image_Ina_Desktop.png",
+            "excerpt": "",
+            "body": "Innere Harmonie und Tiefenentspannung – lass dich von Klangschalen und Gongs in eine wohltuende Klangreise entführen.",
+            "updated_at": "2026-05-12T00:00:00+02:00"
+        },
+        {
+            "id": "evt_seed_retreat",
+            "title": "One Night Retreat",
+            "date_start": "2026-10-03",
+            "date_end": "2026-10-04",
+            "time": "",
+            "location": "Hois'n Wirt\nGmunden",
+            "image": "images/Retreat_Image_Ina.png",
+            "excerpt": "1 Übernachtung im DZ, Frühstück, 2 Yoga-Einheiten, Zugang zum Wellnessbereich",
+            "body": "1 Übernachtung im DZ, Frühstück, 2 Yoga-Einheiten, Zugang zum Wellnessbereich – eine Nacht voller Yoga, Klang und Entspannung.",
+            "updated_at": "2026-05-12T00:00:00+02:00"
+        },
+        {
+            "id": "evt_seed_soundbath",
+            "title": "Sound Bath",
+            "date_start": "",
+            "date_end": "",
+            "time": "",
+            "location": "Hois'n Wirt\nGmunden",
+            "image": "images/Sound Bath card.png",
+            "excerpt": "Klangreise mit Klangschalen und Gongs",
+            "body": "Genieße eine Reise durch Schwingung und Stille, die dein gesamtes System tief regeneriert. Die sanften Klänge von Klangschalen und Koshis lösen Stress und schenken dir ein Gefühl von vollkommener Ruhe.",
+            "updated_at": "2026-05-12T00:00:00+02:00"
+        },
+        {
+            "title": "TESTEVENT",
+            "date_start": "2026-05-14",
+            "date_end": "",
+            "time": "0900",
+            "location": "bei mir",
+            "excerpt": "kurz yoga machen",
+            "body": "lang yoga machen lang yoga machen lang yoga machen lang yoga machen lang yoga machen lang yoga machen",
+            "image": "images/uploads/events/evt_5326f528cc48.png",
+            "id": "evt_a1673e8267240c61",
+            "updated_at": "2026-05-12T15:55:47+02:00"
+        }
+    ]
+}

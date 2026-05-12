@@ -1,0 +1,15 @@
+Einrichtung Admin (Hostinger / lokaler PHP-Server)
+
+1. Kopiere die Konfiguration:
+   cp admin/config.example.php admin/config.php
+
+2. Standard-Passwort nach Kopie aus der Example-Datei (nur für Tests):
+   inaYOGA-events!
+
+   Ändern:
+   php -r "echo password_hash('DEIN_NEUES_PASSWORT', PASSWORD_DEFAULT), PHP_EOL;"
+   Den ausgegebenen Hash in admin/config.php bei password_hash eintragen.
+
+3. Schreibrechte: Ordner data/ und images/uploads/events/ müssen für PHP beschreibbar sein.
+
+4. Aufruf: https://deine-domain.at/admin/login.php

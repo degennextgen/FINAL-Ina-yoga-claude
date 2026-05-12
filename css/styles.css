@@ -1713,6 +1713,20 @@ body.modal-open {
   gap: 1.5rem;
 }
 
+.events__empty {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 1rem;
+  color: var(--color-dark-grey-teal);
+  text-align: center;
+  margin: 0;
+  padding: 1rem 0 2rem;
+}
+
+.events__empty--error {
+  color: #8b2942;
+}
+
 .events__card {
   background-color: var(--color-off-white);
   border-radius: 12px;

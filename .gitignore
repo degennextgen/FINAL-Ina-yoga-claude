@@ -1,0 +1,4 @@
+.venv-events/
+admin/config.php
+images/uploads/events/*
+!images/uploads/events/.gitkeep

@@ -43,7 +43,7 @@ function pricing_default_full(): array
             'footnote' => '(Einheiten á 75 Minuten)',
         ],
         'soft_touch' => [
-            'intro' => 'Preistabelle:',
+            'intro' => 'Preise:',
             'rows' => [
                 ['label' => '50 min', 'value' => '€ 55'],
                 ['label' => '70 min', 'value' => '€ 75'],
@@ -51,7 +51,7 @@ function pricing_default_full(): array
             ],
         ],
         'nuad_thai_slider' => [
-            'intro' => 'Preistabelle (je Einheit):',
+            'intro' => 'Preise:',
             'rows' => [
                 ['label' => '50 min', 'value' => '€ 55'],
                 ['label' => '70 min', 'value' => '€ 75'],

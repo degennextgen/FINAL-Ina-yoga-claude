@@ -2762,13 +2762,31 @@ body.modal-open {
   opacity: 0.7;
 }
 
-.footer__copy {
+.footer__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.footer__copy,
+.footer__credits {
   font-family: var(--font-body);
   font-weight: 300;
   font-size: 0.75rem;
   color: var(--color-dark-grey-teal);
   opacity: 0.65;
   margin: 0;
+}
+
+.footer__credits a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  transition: opacity 0.2s;
+}
+
+.footer__credits a:hover {
+  opacity: 0.7;
 }
 
 @media (min-width: 768px) {

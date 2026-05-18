@@ -7,6 +7,26 @@
 })();
 
 /**
+ * Scroll-to-top – erscheint nach Scrollen, smooth wie Mobile-Menü-Links
+ */
+document.addEventListener('DOMContentLoaded', function () {
+  var btn = document.querySelector('.scroll-top');
+  if (!btn) return;
+
+  var threshold = 200;
+
+  function updateVisibility() {
+    var visible = window.scrollY > threshold;
+    btn.classList.toggle('scroll-top--visible', visible);
+    btn.setAttribute('aria-hidden', visible ? 'false' : 'true');
+    btn.tabIndex = visible ? 0 : -1;
+  }
+
+  window.addEventListener('scroll', updateVisibility, { passive: true });
+  updateVisibility();
+});
+
+/**
  * Burger-Menü Toggle (Schritt 5)
  */
 document.addEventListener('DOMContentLoaded', function () {

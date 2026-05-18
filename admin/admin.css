@@ -151,6 +151,31 @@
   background: #a93226;
 }
 
+.admin-section-title {
+  margin: 2rem 0 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.35rem;
+}
+
+.admin-section-title:first-of-type {
+  margin-top: 0;
+}
+
+.admin-row-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+@media (max-width: 560px) {
+  .admin-row-pair {
+    grid-template-columns: 1fr;
+  }
+}
+
 .admin-footnote {
   font-size: 0.8125rem;
   color: #555;

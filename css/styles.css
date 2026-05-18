@@ -1496,7 +1496,7 @@ body.modal-open {
 }
 
 .yoga-courses__card {
-  padding: 1.25rem 1.5rem;
+  padding: 1.25rem 1rem;
   border-radius: 12px;
 }
 
@@ -1521,7 +1521,7 @@ body.modal-open {
 
 .yoga-courses__card-title {
   font-family: var(--font-script);
-  font-size: 3.25rem;
+  font-size: 3rem;
   color: #000;
   margin: 0 0 0.75rem;
 }

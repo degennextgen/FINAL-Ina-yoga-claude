@@ -2,12 +2,172 @@
 declare(strict_types=1);
 
 /**
- * Events persistence + filtering (Europe/Vienna, calendar-day rules).
+ * Site-Daten (Events + Preise) in data/site.json.
+ * Legacy: data/events.json wird nur gelesen, wenn site.json fehlt (kein Auto-Write beim Lesen).
  */
 
-function events_data_path(): string
+function site_str_clip(string $s, int $max): string
+{
+    if (function_exists('mb_substr')) {
+        return mb_substr($s, 0, $max, 'UTF-8');
+    }
+    return strlen($s) <= $max ? $s : substr($s, 0, $max);
+}
+
+function site_data_path(): string
+{
+    return dirname(__DIR__) . '/data/site.json';
+}
+
+function events_legacy_path(): string
 {
     return dirname(__DIR__) . '/data/events.json';
+}
+
+/**
+ * @return array{
+ *   yoga_courses: array{rows: list<array{label: string, value: string}>, footnote: string},
+ *   soft_touch: array{intro: string, rows: list<array{label: string, value: string}>},
+ *   nuad_thai_slider: array{intro: string, rows: list<array{label: string, value: string}>}
+ * }
+ */
+function pricing_default_full(): array
+{
+    return [
+        'yoga_courses' => [
+            'rows' => [
+                ['label' => 'Drop-in', 'value' => '€ 19,-'],
+                ['label' => '5er Block', 'value' => '€ 90,-'],
+                ['label' => '10er Block', 'value' => '€ 165,-'],
+            ],
+            'footnote' => '(Einheiten á 75 Minuten)',
+        ],
+        'soft_touch' => [
+            'intro' => 'Preistabelle:',
+            'rows' => [
+                ['label' => '50 min', 'value' => '€ 55'],
+                ['label' => '70 min', 'value' => '€ 75'],
+                ['label' => '90 min', 'value' => '€ 95'],
+            ],
+        ],
+        'nuad_thai_slider' => [
+            'intro' => 'Preistabelle (je Einheit):',
+            'rows' => [
+                ['label' => '50 min', 'value' => '€ 55'],
+                ['label' => '70 min', 'value' => '€ 75'],
+                ['label' => '90 min', 'value' => '€ 95'],
+            ],
+        ],
+    ];
+}
+
+/**
+ * @param array<string, mixed> $p
+ * @return array<string, mixed>
+ */
+function pricing_normalize_block(array $p): array
+{
+    $defaults = pricing_default_full();
+    $out = [];
+    foreach ($defaults as $key => $template) {
+        $block = isset($p[$key]) && is_array($p[$key]) ? $p[$key] : [];
+        $rows = [];
+        if (isset($block['rows']) && is_array($block['rows'])) {
+            foreach ($block['rows'] as $row) {
+                if (!is_array($row)) {
+                    continue;
+                }
+                $label = trim((string) ($row['label'] ?? ''));
+                $value = trim((string) ($row['value'] ?? ''));
+                if ($label === '' && $value === '') {
+                    continue;
+                }
+                $rows[] = [
+                    'label' => site_str_clip($label, 120),
+                    'value' => site_str_clip($value, 120),
+                ];
+                if (count($rows) >= 12) {
+                    break;
+                }
+            }
+        }
+        if ($key === 'yoga_courses') {
+            $fn = isset($block['footnote']) ? trim((string) $block['footnote']) : '';
+            $out[$key] = [
+                'rows' => $rows !== [] ? $rows : $template['rows'],
+                'footnote' => $fn !== '' ? site_str_clip($fn, 200) : (string) $template['footnote'],
+            ];
+        } else {
+            $intro = isset($block['intro']) ? trim((string) $block['intro']) : '';
+            $out[$key] = [
+                'intro' => $intro !== '' ? site_str_clip($intro, 200) : (string) $template['intro'],
+                'rows' => $rows !== [] ? $rows : $template['rows'],
+            ];
+        }
+    }
+    return $out;
+}
+
+/**
+ * @return array{events: list<array<string, mixed>>, pricing: array<string, mixed>}
+ */
+function site_load_full(): array
+{
+    $sitePath = site_data_path();
+    $defaults = pricing_default_full();
+
+    if (is_readable($sitePath)) {
+        $json = file_get_contents($sitePath);
+        if ($json === false) {
+            return ['events' => [], 'pricing' => $defaults];
+        }
+        $data = json_decode($json, true);
+        if (!is_array($data)) {
+            return ['events' => [], 'pricing' => $defaults];
+        }
+        $events = isset($data['events']) && is_array($data['events']) ? array_values($data['events']) : [];
+        $pricingIn = isset($data['pricing']) && is_array($data['pricing']) ? $data['pricing'] : [];
+        $pricing = pricing_normalize_block($pricingIn);
+
+        return ['events' => $events, 'pricing' => $pricing];
+    }
+
+    $events = [];
+    $legacy = events_legacy_path();
+    if (is_readable($legacy)) {
+        $json = file_get_contents($legacy);
+        if ($json !== false) {
+            $old = json_decode($json, true);
+            if (is_array($old) && isset($old['events']) && is_array($old['events'])) {
+                $events = array_values($old['events']);
+            }
+        }
+    }
+
+    return ['events' => $events, 'pricing' => $defaults];
+}
+
+/**
+ * @param array{events: list<array<string, mixed>>, pricing: array<string, mixed>} $data
+ */
+function site_save_full(array $data): void
+{
+    $path = site_data_path();
+    $dir = dirname($path);
+    if (!is_dir($dir)) {
+        mkdir($dir, 0755, true);
+    }
+    $payload = [
+        'events' => array_values($data['events']),
+        'pricing' => pricing_normalize_block($data['pricing']),
+    ];
+    $json = json_encode(
+        $payload,
+        JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR
+    );
+    if (file_put_contents($path, $json) === false) {
+        throw new RuntimeException('Could not write site file.');
+    }
 }
 
 /**
@@ -15,19 +175,8 @@ function events_data_path(): string
  */
 function events_load_raw(): array
 {
-    $path = events_data_path();
-    if (!is_readable($path)) {
-        return ['events' => []];
-    }
-    $json = file_get_contents($path);
-    if ($json === false) {
-        return ['events' => []];
-    }
-    $data = json_decode($json, true);
-    if (!is_array($data) || !isset($data['events']) || !is_array($data['events'])) {
-        return ['events' => []];
-    }
-    return ['events' => array_values($data['events'])];
+    $full = site_load_full();
+    return ['events' => $full['events']];
 }
 
 /**
@@ -35,18 +184,32 @@ function events_load_raw(): array
  */
 function events_save_raw(array $data): void
 {
-    $path = events_data_path();
-    $dir = dirname($path);
-    if (!is_dir($dir)) {
-        mkdir($dir, 0755, true);
+    $full = site_load_full();
+    $full['events'] = $data['events'];
+    site_save_full($full);
+}
+
+/**
+ * @return array<string, mixed>
+ */
+function pricing_public_payload(array $pricing): array
+{
+    $p = pricing_normalize_block($pricing);
+    $out = [];
+    foreach ($p as $key => $block) {
+        if ($key === 'yoga_courses') {
+            $out[$key] = [
+                'rows' => $block['rows'],
+                'footnote' => (string) ($block['footnote'] ?? ''),
+            ];
+        } else {
+            $out[$key] = [
+                'intro' => (string) ($block['intro'] ?? ''),
+                'rows' => $block['rows'],
+            ];
+        }
     }
-    $payload = json_encode(
-        $data,
-        JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR
-    );
-    if (file_put_contents($path, $payload) === false) {
-        throw new RuntimeException('Could not write events file.');
-    }
+    return $out;
 }
 
 function events_generate_id(): string
@@ -220,5 +383,87 @@ function events_normalize_input(array $post, ?array $file, ?string $existingImag
         'excerpt' => $excerpt,
         'body' => $body,
         'image' => $imagePath,
+    ];
+}
+
+/**
+ * @param array<string, mixed> $post
+ * @return array<string, mixed>
+ */
+function pricing_parse_from_post(array $post): array
+{
+    $defaults = pricing_default_full();
+
+    $yogaFoot = trim((string) ($post['yoga_footnote'] ?? ''));
+    if ($yogaFoot === '') {
+        $yogaFoot = (string) $defaults['yoga_courses']['footnote'];
+    } else {
+        $yogaFoot = site_str_clip($yogaFoot, 200);
+    }
+
+    $yogaLabels = isset($post['yoga_label']) && is_array($post['yoga_label']) ? $post['yoga_label'] : [];
+    $yogaValues = isset($post['yoga_value']) && is_array($post['yoga_value']) ? $post['yoga_value'] : [];
+    $yogaRows = [];
+    $n = min(count($yogaLabels), count($yogaValues), 12);
+    for ($i = 0; $i < $n; $i++) {
+        $label = trim((string) $yogaLabels[$i]);
+        $value = trim((string) $yogaValues[$i]);
+        if ($label === '' && $value === '') {
+            continue;
+        }
+        $yogaRows[] = ['label' => site_str_clip($label, 120), 'value' => site_str_clip($value, 120)];
+    }
+
+    $stIntro = trim((string) ($post['soft_touch_intro'] ?? ''));
+    if ($stIntro === '') {
+        $stIntro = (string) $defaults['soft_touch']['intro'];
+    } else {
+        $stIntro = site_str_clip($stIntro, 200);
+    }
+    $stL = isset($post['soft_touch_label']) && is_array($post['soft_touch_label']) ? $post['soft_touch_label'] : [];
+    $stV = isset($post['soft_touch_value']) && is_array($post['soft_touch_value']) ? $post['soft_touch_value'] : [];
+    $stRows = [];
+    $n2 = min(count($stL), count($stV), 12);
+    for ($i = 0; $i < $n2; $i++) {
+        $label = trim((string) $stL[$i]);
+        $value = trim((string) $stV[$i]);
+        if ($label === '' && $value === '') {
+            continue;
+        }
+        $stRows[] = ['label' => site_str_clip($label, 120), 'value' => site_str_clip($value, 120)];
+    }
+
+    $nuIntro = trim((string) ($post['nuad_slider_intro'] ?? ''));
+    if ($nuIntro === '') {
+        $nuIntro = (string) $defaults['nuad_thai_slider']['intro'];
+    } else {
+        $nuIntro = site_str_clip($nuIntro, 200);
+    }
+    $nuL = isset($post['nuad_slider_label']) && is_array($post['nuad_slider_label']) ? $post['nuad_slider_label'] : [];
+    $nuV = isset($post['nuad_slider_value']) && is_array($post['nuad_slider_value']) ? $post['nuad_slider_value'] : [];
+    $nuRows = [];
+    $n3 = min(count($nuL), count($nuV), 12);
+    for ($i = 0; $i < $n3; $i++) {
+        $label = trim((string) $nuL[$i]);
+        $value = trim((string) $nuV[$i]);
+        if ($label === '' && $value === '') {
+            continue;
+        }
+        $nuRows[] = ['label' => site_str_clip($label, 120), 'value' => site_str_clip($value, 120)];
+    }
+
+    return [
+        'yoga_courses' => [
+            'rows' => $yogaRows !== [] ? $yogaRows : $defaults['yoga_courses']['rows'],
+            'footnote' => $yogaFoot,
+        ],
+        'soft_touch' => [
+            'intro' => $stIntro,
+            'rows' => $stRows !== [] ? $stRows : $defaults['soft_touch']['rows'],
+        ],
+        'nuad_thai_slider' => [
+            'intro' => $nuIntro,
+            'rows' => $nuRows !== [] ? $nuRows : $defaults['nuad_thai_slider']['rows'],
+        ],
     ];
 }

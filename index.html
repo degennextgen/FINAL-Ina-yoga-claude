@@ -214,25 +214,20 @@
                   <h3 class="yoga-courses__card-title">in Rüstorf</h3>
                   <p class="yoga-courses__card-schedule">jeden Dienstag</p>
                   <p class="yoga-courses__card-schedule">18.15 – 19.30</p>
-                  <a href="https://maps.app.goo.gl/spmmWdakpuX3nmtu5" target="_blank" rel="noopener noreferrer" class="yoga-courses__card-location">VAZ Rüstorf auf Google Maps</a>
+                  <a href="https://maps.app.goo.gl/RtTA4rUdqrWntqek8" target="_blank" rel="noopener noreferrer" class="yoga-courses__card-location">VAZ Rüstorf auf Google Maps</a>
                   <p class="yoga-courses__card-note">*Startzeit im Sommer: 19.15</p>
                 </div>
                 <div class="yoga-courses__card yoga-courses__card--location yoga-courses__card--ohlsdorf">
                   <h3 class="yoga-courses__card-title">in Ohlsdorf</h3>
                   <p class="yoga-courses__card-schedule">jeden Donnerstag</p>
                   <p class="yoga-courses__card-schedule">17.15 – 18.30</p>
-                  <a href="https://maps.app.goo.gl/RtTA4rUdqrWntqek8" target="_blank" rel="noopener noreferrer" class="yoga-courses__card-location">Mezzo Ohlsdorf auf Google Maps</a>
-                  <p class="yoga-courses__card-note">*Sommerpause: Juli – August</p>
+                  <a href="https://maps.app.goo.gl/spmmWdakpuX3nmtu5" target="_blank" rel="noopener noreferrer" class="yoga-courses__card-location">Mezzo Ohlsdorf auf Google Maps</a>
                 </div>
               </div>
               <div class="yoga-courses__card yoga-courses__card--prices">
                 <h3 class="yoga-courses__card-title yoga-courses__card-title--prices">Preise:</h3>
-                <div class="yoga-courses__price-list">
-                  <p class="yoga-courses__price-item"><span class="yoga-courses__price-label">Drop-in</span> <span class="yoga-courses__price-value">€ 19,-</span></p>
-                  <p class="yoga-courses__price-item"><span class="yoga-courses__price-label">5er Block</span> <span class="yoga-courses__price-value">€ 90,-</span></p>
-                  <p class="yoga-courses__price-item"><span class="yoga-courses__price-label">10er Block</span> <span class="yoga-courses__price-value">€ 165,-</span></p>
-                </div>
-                <p class="yoga-courses__card-note yoga-courses__card-note--prices">(Einheiten á 75 Minuten)</p>
+                <div class="yoga-courses__price-list" id="pricing-yoga-root"></div>
+                <p class="yoga-courses__card-note yoga-courses__card-note--prices" id="pricing-yoga-footnote"></p>
             </div>
           </div>
         </div>
@@ -255,7 +250,7 @@
       <div class="events__inner">
         <h2 class="events__title section-title">Events</h2>
         <div class="events__grid" id="events-grid-root" aria-live="polite">
-          <!-- Events werden per js/events.js aus api/events.php geladen -->
+          <!-- Events + Preise: js/site.js → api/site.php -->
         </div>
       </div>
       <div class="wavy-divider wavy-divider--green-lavender" aria-hidden="true">
@@ -310,14 +305,8 @@
               </div>
               <div class="offer-slider__col offer-slider__col--text offer-slider__col--text-right">
                 <h2 class="offer-slider__title section-title">Bodywork: Soft Touch</h2>
-                <p class="offer-slider__text">Genieße eine Reise durch Schwingung und Stille, die dein gesamtes System tief regeneriert. Die sanften Klänge von Klangschalen und Koshis lösen Stress und schenken dir ein Gefühl von vollkommener Ruhe.</p>
-                <p class="offer-slider__text">Preistabelle:
-                  <ul>
-                    <li>50 min: € 55</li>
-                    <li>70 min: € 75</li>
-                    <li>90 min: € 95</li>
-                  </ul>
-                </p>
+                <p class="offer-slider__text">Eine sanfte Variante der Körperarbeit, bei der die Regulation des Nervensystems im Vordergrund steht. Durch flächigen Druck bekommst du ein Gefühl des Gehalten-Werdens. Dadurch kann sich die Grundspannung der Muskeln reduzieren und auf allen Ebenen ein Gefühl tiefer Entspannung entstehen. </p>
+                <div id="pricing-soft-touch-root"></div>
                 <a href="#kontakt" class="offer-slider__btn btn-img">
                   <img src="Buttons/Button_Yellow_1_Images_Ina.png" alt="">
                   <span>SOFT TOUCH BUCHEN</span>
@@ -344,14 +333,8 @@
             <div class="offer-slider__layout">
               <div class="offer-slider__col offer-slider__col--text">
                 <h2 class="offer-slider__title section-title">Bodywork: Nuad Thai</h2>
-                <p class="offer-slider__text">Erlebe eine Art „Passives Yoga", das durch achtsame Druckpunkte und Dehnungen den Energiefluss anregt. Du darfst vollkommen loslassen und genießen, während ich deinen Körper individuell durch die Praxis führe.</p>
-                <p class="offer-slider__text">Preistabelle (je Einheit):
-                  <ul>
-                    <li>50 min: € 55</li>
-                    <li>70 min: € 75</li>
-                    <li>90 min: € 95</li>
-                  </ul>
-                </p>
+                <p class="offer-slider__text">Bei dieser intensiven Form der Berührung arbeite ich gezielt mit bestimmten Druck- und Muskelpunkten, aber auch mit passiven Dehnungen, wodurch sich Verspannungen lösen und sich die Beweglichkeit verbessern kann.</p>
+                <div id="pricing-nuad-slider-root"></div>
                 <a href="#kontakt" class="offer-slider__btn btn-img">
                   <img src="Buttons/Button_BlueBlack_Images_Ina.png" alt="">
                   <span>NUAD BUCHEN</span>
@@ -483,10 +466,10 @@
           4663 Laakirchen
         </address>
         <div class="contact__maps">
-          <a href="https://maps.app.goo.gl/spmmWdakpuX3nmtu5" target="_blank" rel="noopener noreferrer" class="contact__map-link">
+          <a href="https://maps.app.goo.gl/RtTA4rUdqrWntqek8" target="_blank" rel="noopener noreferrer" class="contact__map-link">
             VAZ Rüstorf auf Google Maps →
           </a>
-          <a href="https://maps.app.goo.gl/RtTA4rUdqrWntqek8" target="_blank" rel="noopener noreferrer" class="contact__map-link">
+          <a href="https://maps.app.goo.gl/spmmWdakpuX3nmtu5" target="_blank" rel="noopener noreferrer" class="contact__map-link">
             Mezzo Ohlsdorf auf Google Maps →
           </a>
           <a href="https://www.google.com/maps/search/?api=1&query=Kerblweg+45+4663+Laakirchen" target="_blank" rel="noopener noreferrer" class="contact__map-link">
@@ -511,7 +494,7 @@
     </div>
   </footer>
 
-  <!-- Event-Modal (Inhalt aus js/events.js / api/events.php) -->
+  <!-- Event-Modal (Inhalt aus js/site.js / api/site.php) -->
   <div class="modal" id="modal-event-detail" role="dialog" aria-modal="true" aria-labelledby="modal-event-detail-title" aria-hidden="true">
     <div class="modal__backdrop" data-modal-close></div>
     <div class="modal__container modal__container--event">
@@ -581,7 +564,7 @@
           <h2 class="modal__title" id="modal-sound-bath-was-title">Sound Bath mit Ina</h2>
         </div>
         <div class="modal__body">
-          <p class="modal__text">Genieße eine Reise durch Schwingung und Stille, die dein gesamtes System tief regeneriert. Die sanften Klänge von Klangschalen und Koshis lösen Stress und schenken dir ein Gefühl von vollkommener Ruhe.</p>
+          <p class="modal__text">Eine sanfte Variante der Körperarbeit, bei der die Regulation des Nervensystems im Vordergrund steht. Durch flächigen Druck bekommst du ein Gefühl des Gehalten-Werdens. Dadurch kann sich die Grundspannung der Muskeln reduzieren und auf allen Ebenen ein Gefühl tiefer Entspannung entstehen.</p>
           <a href="#kontakt" class="modal__btn btn-img" data-modal-close>
             <img src="Buttons/Button_Yellow_1_Images_Ina.png" alt="">
             <span>SOFT TOUCH BUCHEN</span>
@@ -628,6 +611,6 @@
   </div>
 
   <script src="js/main.js"></script>
-  <script src="js/events.js"></script>
+  <script src="js/site.js"></script>
 </body>
 </html>

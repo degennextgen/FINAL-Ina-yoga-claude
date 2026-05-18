@@ -1,5 +1,5 @@
 /**
- * Events-Sektion: Daten aus api/events.php, eine gemeinsame Modal-Instanz.
+ * Startseite: Events + Preise aus einer Quelle (api/site.php).
  */
 (function () {
   'use strict';
@@ -24,9 +24,6 @@
     return pad2(parseInt(p[2], 10)) + '.' + pad2(parseInt(p[1], 10)) + '.' + p[0];
   }
 
-  /**
-   * @param {{ date_start: string, date_end: string }} ev
-   */
   function formatDateLabel(ev) {
     var ds = (ev.date_start || '').trim();
     if (!ds) return 'Termin auf Anfrage';
@@ -38,9 +35,6 @@
     return startDe;
   }
 
-  /**
-   * @param {{ date_start: string, date_end: string, time: string, location: string }} ev
-   */
   function formatMetaLine(ev) {
     var parts = [];
     parts.push(formatDateLabel(ev));
@@ -70,10 +64,6 @@
     }
   }
 
-  /**
-   * @param {HTMLElement} grid
-   * @param {Array<Object>} events
-   */
   function renderCards(grid, events) {
     grid.innerHTML = '';
 
@@ -96,26 +86,26 @@
       img.alt = ev.title || '';
       wrap.appendChild(img);
 
-      var body = document.createElement('div');
-      body.className = 'events__card-body';
+      var cardBody = document.createElement('div');
+      cardBody.className = 'events__card-body';
 
       var h3 = document.createElement('h3');
       h3.className = 'events__card-title';
       h3.textContent = ev.title || '';
 
-      body.appendChild(h3);
+      cardBody.appendChild(h3);
 
       var dateLine = document.createElement('p');
       dateLine.className = 'events__card-meta';
       dateLine.textContent = formatDateLabel(ev);
-      body.appendChild(dateLine);
+      cardBody.appendChild(dateLine);
 
       var timeStr = (ev.time || '').trim();
       if (timeStr) {
         var timeLine = document.createElement('p');
         timeLine.className = 'events__card-meta';
         timeLine.textContent = timeStr;
-        body.appendChild(timeLine);
+        cardBody.appendChild(timeLine);
       }
 
       var locStr = (ev.location || '').trim();
@@ -126,7 +116,7 @@
           var p = document.createElement('p');
           p.className = 'events__card-meta';
           p.textContent = line;
-          body.appendChild(p);
+          cardBody.appendChild(p);
         });
       }
 
@@ -135,7 +125,7 @@
         var exP = document.createElement('p');
         exP.className = 'events__card-meta';
         exP.textContent = ex;
-        body.appendChild(exP);
+        cardBody.appendChild(exP);
       }
 
       var btn = document.createElement('button');
@@ -149,10 +139,10 @@
       span.textContent = 'MEHR DAZU';
       btn.appendChild(btnImg);
       btn.appendChild(span);
-      body.appendChild(btn);
+      cardBody.appendChild(btn);
 
       article.appendChild(wrap);
-      article.appendChild(body);
+      article.appendChild(cardBody);
       grid.appendChild(article);
     });
   }
@@ -181,39 +171,99 @@
     if (metaEl) metaEl.textContent = formatMetaLine(ev);
   }
 
+  /**
+   * @param {string} rootId
+   * @param {{ rows?: Array<{label: string, value: string}>, footnote?: string }} block
+   */
+  function renderYogaPricing(rootId, block) {
+    var el = document.getElementById(rootId);
+    if (!el || !block || !block.rows) return;
+    el.innerHTML = '';
+    block.rows.forEach(function (row) {
+      var p = document.createElement('p');
+      p.className = 'yoga-courses__price-item';
+      p.innerHTML =
+        '<span class="yoga-courses__price-label">' +
+        escapeHtml(row.label) +
+        '</span> <span class="yoga-courses__price-value">' +
+        escapeHtml(row.value) +
+        '</span>';
+      el.appendChild(p);
+    });
+    var foot = document.getElementById('pricing-yoga-footnote');
+    if (foot) {
+      foot.textContent = (block.footnote || '').trim();
+    }
+  }
+
+  /**
+   * @param {string} rootId
+   * @param {{ intro?: string, rows?: Array<{label: string, value: string}> }} block
+   */
+  function renderSliderPricing(rootId, block) {
+    var el = document.getElementById(rootId);
+    if (!el || !block) return;
+    el.innerHTML = '';
+    var wrap = document.createElement('div');
+    wrap.className = 'offer-slider__text';
+    var intro = (block.intro || '').trim();
+    if (intro) {
+      wrap.appendChild(document.createTextNode(intro + ' '));
+    }
+    var ul = document.createElement('ul');
+    (block.rows || []).forEach(function (row) {
+      var li = document.createElement('li');
+      var lab = (row.label || '').trim();
+      var val = (row.value || '').trim();
+      li.textContent = lab + (lab && val ? ': ' : '') + val;
+      ul.appendChild(li);
+    });
+    wrap.appendChild(ul);
+    el.appendChild(wrap);
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     var grid = document.getElementById('events-grid-root');
     var modal = document.getElementById('modal-event-detail');
-    if (!grid || !modal) return;
 
-    fetch('api/events.php', { credentials: 'same-origin' })
+    fetch('api/site.php', { credentials: 'same-origin' })
       .then(function (r) {
         if (!r.ok) throw new Error('HTTP ' + r.status);
         return r.json();
       })
       .then(function (data) {
-        eventsCache = data.events || [];
-        renderCards(grid, eventsCache);
+        var pricing = data.pricing || {};
+
+        if (grid) {
+          eventsCache = data.events || [];
+          renderCards(grid, eventsCache);
+          grid.addEventListener('click', function (e) {
+            if (!modal) return;
+            var btn = e.target.closest('[data-open-event]');
+            if (!btn) return;
+            var id = btn.getAttribute('data-open-event');
+            var ev = null;
+            for (var i = 0; i < eventsCache.length; i++) {
+              if (eventsCache[i].id === id) {
+                ev = eventsCache[i];
+                break;
+              }
+            }
+            if (!ev) return;
+            fillModal(modal, ev);
+            openEventDetailModal(modal);
+          });
+        }
+
+        renderYogaPricing('pricing-yoga-root', pricing.yoga_courses);
+        renderSliderPricing('pricing-soft-touch-root', pricing.soft_touch);
+        renderSliderPricing('pricing-nuad-slider-root', pricing.nuad_thai_slider);
       })
       .catch(function () {
-        grid.innerHTML =
-          '<p class="events__empty events__empty--error">Events konnten nicht geladen werden. Bitte später erneut versuchen.</p>';
-      });
-
-    grid.addEventListener('click', function (e) {
-      var btn = e.target.closest('[data-open-event]');
-      if (!btn) return;
-      var id = btn.getAttribute('data-open-event');
-      var ev = null;
-      for (var i = 0; i < eventsCache.length; i++) {
-        if (eventsCache[i].id === id) {
-          ev = eventsCache[i];
-          break;
+        if (grid) {
+          grid.innerHTML =
+            '<p class="events__empty events__empty--error">Inhalte konnten nicht geladen werden. Bitte später erneut versuchen.</p>';
         }
-      }
-      if (!ev) return;
-      fillModal(modal, ev);
-      openEventDetailModal(modal);
-    });
+      });
   });
 })();

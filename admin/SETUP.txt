@@ -10,6 +10,8 @@ Einrichtung Admin (Hostinger / lokaler PHP-Server)
    php -r "echo password_hash('DEIN_NEUES_PASSWORT', PASSWORD_DEFAULT), PHP_EOL;"
    Den ausgegebenen Hash in admin/config.php bei password_hash eintragen.
 
-3. Schreibrechte: Ordner data/ und images/uploads/events/ müssen für PHP beschreibbar sein.
+3. Schreibrechte: Ordner data/ (Datei data/site.json mit Events + Preisen) und images/uploads/events/ müssen für PHP beschreibbar sein.
 
 4. Aufruf: https://deine-domain.at/admin/login.php
+
+Hinweis: Inhalte liegen in data/site.json (früher nur data/events.json). Bestehende events.json wird beim ersten Laden noch gelesen, bis site.json existiert; nach dem ersten Speichern im Admin entsteht site.json.

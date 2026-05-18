@@ -45,6 +45,7 @@ $image = $isEdit ? (string) ($event['image'] ?? '') : '';
     <h1><?= $isEdit ? 'Event bearbeiten' : 'Neues Event' ?></h1>
     <nav class="admin-nav">
       <a href="index.php">← Übersicht</a>
+      <a href="pricing.php">Preise</a>
     </nav>
   </header>
 

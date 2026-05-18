@@ -7,23 +7,23 @@
 })();
 
 /**
- * Scroll-to-top – erscheint nach Scrollen, smooth wie Mobile-Menü-Links
+ * Scroll-to-top – sichtbar nach Scroll, smooth wie Anker-Navigation
  */
 document.addEventListener('DOMContentLoaded', function () {
   var btn = document.querySelector('.scroll-top');
   if (!btn) return;
 
-  var threshold = 200;
+  var threshold = 300;
 
-  function updateVisibility() {
-    var visible = window.scrollY > threshold;
-    btn.classList.toggle('scroll-top--visible', visible);
-    btn.setAttribute('aria-hidden', visible ? 'false' : 'true');
-    btn.tabIndex = visible ? 0 : -1;
+  function updateScrollTop() {
+    var show = window.scrollY > threshold;
+    btn.classList.toggle('scroll-top--visible', show);
+    btn.setAttribute('aria-hidden', show ? 'false' : 'true');
+    btn.tabIndex = show ? 0 : -1;
   }
 
-  window.addEventListener('scroll', updateVisibility, { passive: true });
-  updateVisibility();
+  window.addEventListener('scroll', updateScrollTop, { passive: true });
+  updateScrollTop();
 });
 
 /**

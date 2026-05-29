@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * Site-Daten (Events + Preise) in data/site.json.
+ * Site-Daten (Events + Preise + Kooperationen) in data/site.json.
  * Legacy: data/events.json wird nur gelesen, wenn site.json fehlt (kein Auto-Write beim Lesen).
  */
 
@@ -109,27 +109,193 @@ function pricing_normalize_block(array $p): array
 }
 
 /**
- * @return array{events: list<array<string, mixed>>, pricing: array<string, mixed>}
+ * @return list<array{id: string, prefix: string, name: string, url: string, logo: string, sort: int}>
+ */
+function partners_default_list(): array
+{
+    return [
+        [
+            'id' => 'partner_hr',
+            'prefix' => 'website by',
+            'name' => 'HR CREATIVE LAB',
+            'url' => 'https://hr-creative-lab.at',
+            'logo' => '',
+            'sort' => 0,
+        ],
+        [
+            'id' => 'partner_mag',
+            'prefix' => 'fotos by',
+            'name' => 'MAG',
+            'url' => 'https://www.instagram.com/_photos_by_mag?igsh=ZmhvdjdhYmdhbzM1',
+            'logo' => '',
+            'sort' => 1,
+        ],
+    ];
+}
+
+/**
+ * @param list<array<string, mixed>> $list
+ * @return list<array{id: string, prefix: string, name: string, url: string, logo: string, sort: int}>
+ */
+function partners_normalize_list(array $list): array
+{
+    $out = [];
+    $sort = 0;
+    foreach ($list as $row) {
+        if (!is_array($row)) {
+            continue;
+        }
+        $prefix = trim((string) ($row['prefix'] ?? ''));
+        $name = trim((string) ($row['name'] ?? ''));
+        $url = trim((string) ($row['url'] ?? ''));
+        $logo = trim((string) ($row['logo'] ?? ''));
+        if ($name === '' && $prefix === '') {
+            continue;
+        }
+        if ($url !== '' && !preg_match('#^https?://#i', $url)) {
+            $url = '';
+        }
+        $id = trim((string) ($row['id'] ?? ''));
+        if ($id === '') {
+            $id = partners_generate_id();
+        }
+        $out[] = [
+            'id' => site_str_clip($id, 64),
+            'prefix' => site_str_clip($prefix, 80),
+            'name' => site_str_clip($name, 120),
+            'url' => site_str_clip($url, 500),
+            'logo' => $logo !== '' ? site_str_clip($logo, 300) : '',
+            'sort' => $sort,
+        ];
+        $sort++;
+        if (count($out) >= 20) {
+            break;
+        }
+    }
+    if ($out === []) {
+        return partners_default_list();
+    }
+    return $out;
+}
+
+function partners_generate_id(): string
+{
+    return 'partner_' . bin2hex(random_bytes(6));
+}
+
+/**
+ * @param list<array<string, mixed>> $partners
+ * @return list<array{id: string, prefix: string, name: string, url: string, logo: string}>
+ */
+function partners_public_list(array $partners): array
+{
+    $normalized = partners_normalize_list($partners);
+    $out = [];
+    foreach ($normalized as $p) {
+        $out[] = [
+            'id' => (string) $p['id'],
+            'prefix' => (string) $p['prefix'],
+            'name' => (string) $p['name'],
+            'url' => (string) $p['url'],
+            'logo' => (string) $p['logo'],
+        ];
+    }
+    return $out;
+}
+
+/**
+ * @param array<string, mixed> $post
+ * @param array<string, mixed>|null $file $_FILES['logo']
+ */
+function partners_normalize_input(array $post, ?array $file, ?string $existingLogo, bool $isEdit): array
+{
+    $prefix = trim((string) ($post['prefix'] ?? ''));
+    $name = trim((string) ($post['name'] ?? ''));
+    $url = trim((string) ($post['url'] ?? ''));
+
+    if ($name === '') {
+        throw new InvalidArgumentException('Firmenname ist erforderlich.');
+    }
+    if ($url === '') {
+        throw new InvalidArgumentException('Link (URL) ist erforderlich.');
+    }
+    if (!preg_match('#^https?://#i', $url)) {
+        throw new InvalidArgumentException('Link muss mit http:// oder https:// beginnen.');
+    }
+
+    $logoPath = $existingLogo ?? '';
+    if ($file !== null && isset($file['error'])) {
+        $err = (int) $file['error'];
+        if ($err === UPLOAD_ERR_OK) {
+            $tmp = (string) ($file['tmp_name'] ?? '');
+            if ($tmp === '' || !is_uploaded_file($tmp)) {
+                throw new InvalidArgumentException('Ungültiger Upload.');
+            }
+            $fi = new finfo(FILEINFO_MIME_TYPE);
+            $mime = $fi->file($tmp);
+            $allowed = [
+                'image/jpeg' => 'jpg',
+                'image/png' => 'png',
+                'image/webp' => 'webp',
+                'image/gif' => 'gif',
+                'image/svg+xml' => 'svg',
+            ];
+            if (!isset($allowed[$mime])) {
+                throw new InvalidArgumentException('Nur JPG, PNG, WebP, GIF oder SVG erlaubt.');
+            }
+            $ext = $allowed[$mime];
+            $uploadDir = dirname(__DIR__) . '/images/uploads/partners';
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir, 0755, true);
+            }
+            $basename = 'partner_' . bin2hex(random_bytes(6)) . '.' . $ext;
+            $dest = $uploadDir . '/' . $basename;
+            if (!move_uploaded_file($tmp, $dest)) {
+                throw new InvalidArgumentException('Logo konnte nicht gespeichert werden.');
+            }
+            $logoPath = 'images/uploads/partners/' . $basename;
+        } elseif ($err !== UPLOAD_ERR_NO_FILE) {
+            throw new InvalidArgumentException('Logo-Upload fehlgeschlagen.');
+        }
+    }
+
+    if (!$isEdit && $logoPath === '') {
+        throw new InvalidArgumentException('Bitte ein Logo-Bild auswählen.');
+    }
+
+    return [
+        'prefix' => site_str_clip($prefix, 80),
+        'name' => site_str_clip($name, 120),
+        'url' => site_str_clip($url, 500),
+        'logo' => $logoPath,
+    ];
+}
+
+/**
+ * @return array{events: list<array<string, mixed>>, pricing: array<string, mixed>, partners: list<array<string, mixed>>}
  */
 function site_load_full(): array
 {
     $sitePath = site_data_path();
     $defaults = pricing_default_full();
+    $partnerDefaults = partners_default_list();
 
     if (is_readable($sitePath)) {
         $json = file_get_contents($sitePath);
         if ($json === false) {
-            return ['events' => [], 'pricing' => $defaults];
+            return ['events' => [], 'pricing' => $defaults, 'partners' => $partnerDefaults];
         }
         $data = json_decode($json, true);
         if (!is_array($data)) {
-            return ['events' => [], 'pricing' => $defaults];
+            return ['events' => [], 'pricing' => $defaults, 'partners' => $partnerDefaults];
         }
         $events = isset($data['events']) && is_array($data['events']) ? array_values($data['events']) : [];
         $pricingIn = isset($data['pricing']) && is_array($data['pricing']) ? $data['pricing'] : [];
         $pricing = pricing_normalize_block($pricingIn);
+        $partnersIn = isset($data['partners']) && is_array($data['partners']) ? $data['partners'] : [];
+        $partners = $partnersIn !== [] ? partners_normalize_list($partnersIn) : $partnerDefaults;
 
-        return ['events' => $events, 'pricing' => $pricing];
+        return ['events' => $events, 'pricing' => $pricing, 'partners' => $partners];
     }
 
     $events = [];
@@ -144,11 +310,11 @@ function site_load_full(): array
         }
     }
 
-    return ['events' => $events, 'pricing' => $defaults];
+    return ['events' => $events, 'pricing' => $defaults, 'partners' => $partnerDefaults];
 }
 
 /**
- * @param array{events: list<array<string, mixed>>, pricing: array<string, mixed>} $data
+ * @param array{events: list<array<string, mixed>>, pricing: array<string, mixed>, partners?: list<array<string, mixed>>} $data
  */
 function site_save_full(array $data): void
 {
@@ -157,9 +323,11 @@ function site_save_full(array $data): void
     if (!is_dir($dir)) {
         mkdir($dir, 0755, true);
     }
+    $partnersIn = isset($data['partners']) && is_array($data['partners']) ? $data['partners'] : [];
     $payload = [
         'events' => array_values($data['events']),
         'pricing' => pricing_normalize_block($data['pricing']),
+        'partners' => partners_normalize_list($partnersIn),
     ];
     $json = json_encode(
         $payload,

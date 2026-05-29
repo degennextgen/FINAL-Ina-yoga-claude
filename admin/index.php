@@ -42,6 +42,7 @@ $deleted = isset($_GET['deleted']);
     <nav class="admin-nav">
       <a href="event-form.php">Neues Event</a>
       <a href="pricing.php">Preise</a>
+      <a href="partners.php">Kooperationen</a>
       <a href="../index.html" target="_blank">Website</a>
       <a href="logout.php">Abmelden</a>
     </nav>

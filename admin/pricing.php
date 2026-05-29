@@ -40,6 +40,7 @@ $nuRows = $padRows($nu['rows']);
     <h1>Preise (Startseite)</h1>
     <nav class="admin-nav">
       <a href="index.php">Events</a>
+      <a href="partners.php">Kooperationen</a>
       <a href="../index.html" target="_blank">Website</a>
       <a href="logout.php">Abmelden</a>
     </nav>

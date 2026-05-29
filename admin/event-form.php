@@ -46,6 +46,7 @@ $image = $isEdit ? (string) ($event['image'] ?? '') : '';
     <nav class="admin-nav">
       <a href="index.php">← Übersicht</a>
       <a href="pricing.php">Preise</a>
+      <a href="partners.php">Kooperationen</a>
     </nav>
   </header>
 

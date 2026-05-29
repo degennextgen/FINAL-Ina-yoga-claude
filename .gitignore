@@ -2,3 +2,5 @@
 admin/config.php
 images/uploads/events/*
 !images/uploads/events/.gitkeep
+images/uploads/partners/*
+!images/uploads/partners/.gitkeep

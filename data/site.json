@@ -86,5 +86,23 @@
         { "label": "90 min", "value": "€ 95" }
       ]
     }
-  }
+  },
+  "partners": [
+    {
+      "id": "partner_hr",
+      "prefix": "website by",
+      "name": "HR CREATIVE LAB",
+      "url": "https://hr-creative-lab.at",
+      "logo": "",
+      "sort": 0
+    },
+    {
+      "id": "partner_mag",
+      "prefix": "fotos by",
+      "name": "MAG",
+      "url": "https://www.instagram.com/_photos_by_mag?igsh=ZmhvdjdhYmdhbzM1",
+      "logo": "",
+      "sort": 1
+    }
+  ]
 }

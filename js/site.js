@@ -257,6 +257,7 @@
 
         renderYogaPricing('pricing-yoga-root', pricing.yoga_courses);
         renderSliderPricing('pricing-soft-touch-root', pricing.soft_touch);
+        renderSliderPricing('pricing-sound-bath-root', pricing.nuad_thai_slider);
         renderSliderPricing('pricing-nuad-slider-root', pricing.nuad_thai_slider);
       })
       .catch(function () {

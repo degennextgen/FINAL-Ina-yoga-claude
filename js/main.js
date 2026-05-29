@@ -288,7 +288,8 @@ function initOfferSlider(trackId, nextId, prevId, sectionId, reversed) {
     );
   });
 }
-initOfferSlider('sb-track', 'sb-next', 'sb-prev', 'sound-bath', true);
+initOfferSlider('sound-bath-track', 'sound-bath-next', 'sound-bath-prev', 'sound-bath', false);
+initOfferSlider('sb-track', 'sb-next', 'sb-prev', 'soft-touch', true);
 initOfferSlider('nt-track', 'nt-next', 'nt-prev', 'nuad-thai', false);
 
 /**

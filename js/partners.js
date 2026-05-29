@@ -1,43 +1,10 @@
 /**
- * Kooperationen: Sektion (mit Logo) + Footer (Text/Link) aus api/partners.php
+ * Kooperationen: Sektion (mit Logo) aus api/partners.php
  */
 (function () {
   'use strict';
 
   var ERROR_MSG = 'Kooperationen konnten nicht geladen werden. Bitte später erneut versuchen.';
-
-  function escapeHtml(s) {
-    if (s == null) return '';
-    var d = document.createElement('div');
-    d.textContent = String(s);
-    return d.innerHTML;
-  }
-
-  function renderFooter(partners, root) {
-    if (!root) return;
-    if (!partners.length) {
-      root.textContent = '';
-      return;
-    }
-    var html = '';
-    partners.forEach(function (p, i) {
-      if (i > 0) {
-        html += ' - ';
-      }
-      var prefix = (p.prefix || '').trim();
-      if (prefix) {
-        html += escapeHtml(prefix) + ' ';
-      }
-      var name = escapeHtml(p.name || '');
-      var url = (p.url || '').trim();
-      if (url) {
-        html += '<a href="' + escapeHtml(url) + '" target="_blank" rel="noopener noreferrer">' + name + '</a>';
-      } else {
-        html += name;
-      }
-    });
-    root.innerHTML = html;
-  }
 
   function renderSection(partners, root) {
     if (!root) return;
@@ -85,10 +52,7 @@
     });
   }
 
-  function showError(footerRoot, sectionRoot) {
-    if (footerRoot) {
-      footerRoot.textContent = ERROR_MSG;
-    }
+  function showError(sectionRoot) {
     if (sectionRoot) {
       sectionRoot.innerHTML = '';
       var err = document.createElement('p');
@@ -98,9 +62,8 @@
     }
   }
 
-  var footerRoot = document.getElementById('footer-partners-root');
   var sectionRoot = document.getElementById('partners-section-root');
-  if (!footerRoot && !sectionRoot) {
+  if (!sectionRoot) {
     return;
   }
 
@@ -116,10 +79,9 @@
         throw new Error(data.error);
       }
       var partners = data.partners || [];
-      renderFooter(partners, footerRoot);
       renderSection(partners, sectionRoot);
     })
     .catch(function () {
-      showError(footerRoot, sectionRoot);
+      showError(sectionRoot);
     });
 })();
